@@ -2,6 +2,8 @@
 
 Minä olen tekstiä, osa **boldattuna** ja osa *kursiivoituna*!
 
+Minä olen ~~muutos~~!
+
 ## Tehtävät
 
 ### Viikko 1
