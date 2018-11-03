@@ -131,3 +131,5 @@ Date:   Sat Nov 3 17:49:14 2018 +0200
 
  tiedosto.txt | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
+ 
+ Epäsynkroonimuutos!
