@@ -1,3 +1,10 @@
-# Hei olen otsikko
+# Ohjelmistotekniikan harjoitustyö
 
 Minä olen tekstiä, osa **boldattuna** ja osa *kursiivoituna*!
+
+## Tehtävät
+
+### Viikko 1
+
+[gitlog.txt](https://github.com/kastematonen/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](https://github.com/kastematonen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
