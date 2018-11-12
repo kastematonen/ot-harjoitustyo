@@ -2,7 +2,7 @@
 
 Minä olen tekstiä, osa **boldattuna** ja osa *kursiivoituna*!
 
-Minä olen ~~muutos~~!!
+Minä olen ~~muutos~~!! Siirtotesti!
 
 ## Tehtävät
 
