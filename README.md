@@ -16,3 +16,7 @@ Minä olen ~~muutos~~!!
 
 [Alustava määrittelydokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
 
+## Dokumentaatio
+
+[Alustava määrittelydokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
+[Työaikakirjanpito](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
