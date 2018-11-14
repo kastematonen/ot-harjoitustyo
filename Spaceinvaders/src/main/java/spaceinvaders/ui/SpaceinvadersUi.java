@@ -17,6 +17,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.animation.AnimationTimer;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+
+//tarvitaanko kaikkia näitä
+import spaceinvaders.domain.Direction;
+import spaceinvaders.domain.Game;
+import spaceinvaders.domain.Invader;
+import spaceinvaders.domain.Player;
 
 public class SpaceinvadersUi extends Application{
     @Override
@@ -24,10 +36,15 @@ public class SpaceinvadersUi extends Application{
         //etusivu
         Label tervetuloteksti = new Label("Space Invaders");
         Button alkunakymastaOhjeisiin = new Button("Ohjeisiin");
+        Button alkunakymastaPeliin = new Button("Peliin");
         BorderPane etusivu = new BorderPane();
         etusivu.setCenter(tervetuloteksti);
-        etusivu.setBottom(alkunakymastaOhjeisiin);
-        etusivu.setPrefSize(300, 200);
+        HBox etusivunPalkki = new HBox();
+        etusivunPalkki.getChildren().add(alkunakymastaOhjeisiin);
+        etusivunPalkki.getChildren().add(alkunakymastaPeliin);
+        etusivunPalkki.setSpacing(10);
+        etusivu.setBottom(etusivunPalkki);
+        etusivu.setPrefSize(400, 400);
         etusivu.setPadding(new Insets(20, 20, 20, 20));
         Scene alkunakyma= new Scene(etusivu);
         
@@ -37,18 +54,97 @@ public class SpaceinvadersUi extends Application{
         BorderPane ohjesivu = new BorderPane();
         ohjesivu.setTop(ohjeteksti);
         ohjesivu.setBottom(ohjeistaAlkunakymaan);
-        ohjesivu.setPrefSize(300, 200);
+        ohjesivu.setPrefSize(400, 400);
         ohjesivu.setPadding(new Insets(20, 20, 20, 20));
         Scene ohjenakyma= new Scene(ohjesivu);
+        
+        //pelinäkymän piirtäminen
+        
+        Canvas canvas = new Canvas(400,380);
+        GraphicsContext drawer = canvas.getGraphicsContext2D();
+        
+        Game game = new Game();
+        
+        //drawing
+        new AnimationTimer(){
+            private long previous;
+            
+            @Override
+            public void handle(long now){
+                if(now - previous < 1_000_000_000 / 30){
+                    return;
+                }
+                previous = now;
+                //musta tausta
+                drawer.setFill(Color.BLACK);
+                drawer.fillRect(0, 0, 400, 380);
+                //sininen pelaaja 
+                //ympyränä
+                drawer.setFill(Color.BLUE);
+                drawer.fillOval(game.getPlayer().getX(), game.getPlayer().getY(), 20, 20);
+                //kolmiona
+//                double xpoints[]={game.getPlayer().getX()-10, game.getPlayer().getX()+10};
+//                double ypoints[]={20};
+//                int npoints = 3;
+//                drawer.fillPolygon(xpoints, ypoints, npoints);
+            }
+        }.start();
+        
+        //updating game
+        new AnimationTimer(){
+            private long previous;
+            @Override
+            public void handle(long now){
+                if(now - previous < 1_000_000_000 / 5){
+                    return;
+                }
+                previous=now;
+                game.update();
+                if(game.getGameOver()){
+                    stop();
+                }
+            }
+        }.start();
+        
+        //pelinäkymä
+        Label pisteet = new Label("pisteet: ");
+        BorderPane pelisivu = new BorderPane();
+        pelisivu.setTop(pisteet);
+        pelisivu.setCenter(canvas);
+        pelisivu.setPrefSize(400, 400);
+        Scene pelinakyma= new Scene(pelisivu);
+        
+        //pelinäkymä: näppäimet
+        pelinakyma.setOnKeyPressed((event) -> {
+            if(event.getCode().equals(KeyCode.RIGHT)){
+                game.getPlayer().setDirection(Direction.RIGHT);
+            } else if(event.getCode().equals(KeyCode.LEFT)){
+                game.getPlayer().setDirection(Direction.LEFT);
+            }
+        });
+        
+        pelinakyma.setOnKeyReleased((event) -> {
+            if(event.getCode().equals(KeyCode.RIGHT)){
+                game.getPlayer().setDirection(Direction.STILL);
+            } else if(event.getCode().equals(KeyCode.LEFT)){
+                game.getPlayer().setDirection(Direction.STILL);
+            } 
+        });
         
         //napit
         alkunakymastaOhjeisiin.setOnAction((event) -> {
             ikkuna.setScene(ohjenakyma);
         });
         
+        alkunakymastaPeliin.setOnAction((event) -> {
+            ikkuna.setScene(pelinakyma);
+        });
+        
         ohjeistaAlkunakymaan.setOnAction((event) -> {
             ikkuna.setScene(alkunakyma);
         });
+        
+        
         
         ikkuna.setScene(alkunakyma);
         ikkuna.show();

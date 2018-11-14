@@ -19,4 +19,32 @@ public class Game {
             //iuusi invader
     //uusi invader
     //osuuko ammus invaderiin
+    
+    private boolean gameOver;
+    private Player player;
+    
+    public Game(){
+        this.gameOver=false;
+        this.player= new Player();
+    }
+    
+    public boolean getGameOver(){
+        return this.gameOver;
+    }
+    public void setGameOver(boolean over){
+        this.gameOver=over;
+    }
+    public Player getPlayer(){
+        return this.player;
+    }
+    public void setPlayer(Player player){
+        this.player=player;
+    }
+    public void update(){
+        if(this.gameOver){
+            return;
+        }
+        this.player.move();
+        
+    }
 }
