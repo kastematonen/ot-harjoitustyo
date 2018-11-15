@@ -22,10 +22,13 @@ public class Game {
     
     private boolean gameOver;
     private Player player;
+    private Invader invader;
     
     public Game(){
         this.gameOver=false;
         this.player= new Player();
+        //arvo randomilla invaderin lähtösijainti?
+        this.invader=new Invader(10);
     }
     
     public boolean getGameOver(){
@@ -40,11 +43,18 @@ public class Game {
     public void setPlayer(Player player){
         this.player=player;
     }
+    public Invader getInvader(){
+        return this.invader;
+    }
+    public void setInvader(Invader invader){
+        this.invader=invader;
+    }
     public void update(){
         if(this.gameOver){
             return;
         }
         this.player.move();
+        this.invader.move();
         
     }
 }

@@ -50,8 +50,8 @@ public class Player {
         } else if (this.direction == Direction.RIGHT){
             newX+=this.speed;
             //ei pääse reunan yli
-            if(newX>380){
-                newX=380;
+            if(newX>360){
+                newX=360;
             }
             this.x=newX;
         } else {

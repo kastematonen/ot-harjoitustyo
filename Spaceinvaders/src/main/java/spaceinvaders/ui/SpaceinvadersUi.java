@@ -87,6 +87,9 @@ public class SpaceinvadersUi extends Application{
 //                double ypoints[]={20};
 //                int npoints = 3;
 //                drawer.fillPolygon(xpoints, ypoints, npoints);
+                //punainen valtaaja
+                drawer.setFill(Color.RED);
+                drawer.fillOval(game.getInvader().getX(), game.getInvader().getY(), 25, 25);
             }
         }.start();
         
