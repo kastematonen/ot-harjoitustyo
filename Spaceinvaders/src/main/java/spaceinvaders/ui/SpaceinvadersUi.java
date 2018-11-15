@@ -23,6 +23,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import java.util.ArrayList;
 
 //tarvitaanko kaikkia näitä
 import spaceinvaders.domain.Direction;
@@ -89,7 +90,15 @@ public class SpaceinvadersUi extends Application{
 //                drawer.fillPolygon(xpoints, ypoints, npoints);
                 //punainen valtaaja
                 drawer.setFill(Color.RED);
-                drawer.fillOval(game.getInvader().getX(), game.getInvader().getY(), 25, 25);
+                ArrayList<Invader> invaders= game.getInvaders();
+                for(int i=0;i<invaders.size();i++){
+                    drawer.fillOval(invaders.get(i).getX(), invaders.get(i).getY(), 25, 25);
+                }
+                //keltainen ammus
+                if(game.getMissile().getState()==true){
+                    drawer.setFill(Color.YELLOW);
+                    drawer.fillOval(game.getMissile().getX(), game.getMissile().getY(), 15, 15);
+                }
             }
         }.start();
         
@@ -123,6 +132,8 @@ public class SpaceinvadersUi extends Application{
                 game.getPlayer().setDirection(Direction.RIGHT);
             } else if(event.getCode().equals(KeyCode.LEFT)){
                 game.getPlayer().setDirection(Direction.LEFT);
+            } else if(event.getCode().equals(KeyCode.SPACE) && game.getMissile().getState()==false){
+                game.launchMissile();
             }
         });
         

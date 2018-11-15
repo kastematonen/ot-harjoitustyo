@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Game {
     //loppu
     //päivitä
@@ -22,13 +25,17 @@ public class Game {
     
     private boolean gameOver;
     private Player player;
-    private Invader invader;
+    private ArrayList<Invader> invaders;
+    private Random random;
+    private Missile missile;
     
     public Game(){
         this.gameOver=false;
         this.player= new Player();
-        //arvo randomilla invaderin lähtösijainti?
-        this.invader=new Invader(10);
+        this.invaders=new ArrayList<>();
+        this.makeInvaders(10);
+        this.random= new Random();
+        this.missile=new Missile();
     }
     
     public boolean getGameOver(){
@@ -43,18 +50,39 @@ public class Game {
     public void setPlayer(Player player){
         this.player=player;
     }
-    public Invader getInvader(){
-        return this.invader;
+    public ArrayList getInvaders(){
+        return this.invaders;
     }
-    public void setInvader(Invader invader){
-        this.invader=invader;
+    public void setInvaders(ArrayList invaders){
+        this.invaders=invaders;
+    }
+    public void makeInvaders(int howMany){
+        Random rand = new Random();
+        for(int i=1; i<= howMany;i++){
+            int xForInvader = rand.nextInt(340);
+            xForInvader+=20;
+            Invader invader = new Invader(xForInvader);
+            this.invaders.add(invader);
+        }
+    }
+    public Missile getMissile(){
+        return this.missile;
+    }
+    public void setMissile(Missile missile){
+        this.missile=missile;
+    }
+    public void launchMissile(){
+        this.missile.setState(true);
+        this.missile.setX(this.player.getX());
     }
     public void update(){
         if(this.gameOver){
             return;
         }
         this.player.move();
-        this.invader.move();
-        
+        for(int i=0;i<this.invaders.size();i++){
+            this.invaders.get(i).move();
+        }
+        this.missile.move();
     }
 }

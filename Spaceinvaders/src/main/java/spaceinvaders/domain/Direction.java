@@ -10,5 +10,5 @@ package spaceinvaders.domain;
  * @author julia
  */
 public enum Direction {
-    RIGHT, LEFT, STILL
+    RIGHT, LEFT, STILL, UP
 }
