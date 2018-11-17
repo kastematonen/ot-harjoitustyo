@@ -102,6 +102,8 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
+        Label pisteet = new Label("pisteet: " + game.getGPoints());
+        
         //updating game
         new AnimationTimer(){
             private long previous;
@@ -112,6 +114,7 @@ public class SpaceinvadersUi extends Application{
                 }
                 previous=now;
                 game.update();
+                pisteet.setText("pisteet: " + game.getGPoints());
                 if(game.getGameOver()){
                     stop();
                 }
@@ -119,7 +122,7 @@ public class SpaceinvadersUi extends Application{
         }.start();
         
         //pelinäkymä
-        Label pisteet = new Label("pisteet: ");
+        //Label pisteet = new Label("pisteet: " + game.getGPoints());
         BorderPane pelisivu = new BorderPane();
         pelisivu.setTop(pisteet);
         pelisivu.setCenter(canvas);
