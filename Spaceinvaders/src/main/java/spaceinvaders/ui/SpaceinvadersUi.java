@@ -133,13 +133,6 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
-        //pelinäkymä
-//        BorderPane pelisivu = new BorderPane();
-//        pelisivu.setTop(pisteet);
-//        pelisivu.setCenter(canvas);
-//        pelisivu.setPrefSize(400, 400);
-//        Scene pelinakyma= new Scene(pelisivu);
-        
         //pelinäkymä: näppäimet
         pelinakyma.setOnKeyPressed((event) -> {
             if(event.getCode().equals(KeyCode.RIGHT)){
@@ -166,7 +159,7 @@ public class SpaceinvadersUi extends Application{
         
         alkunakymastaPeliin.setOnAction((event) -> {
             ikkuna.setScene(pelinakyma);
-            
+            //peli ei pyöri taustalla, vaikka sinne ei siirrytä heti alkunäkymästä
             game.setGameOn(true);
         });
         
