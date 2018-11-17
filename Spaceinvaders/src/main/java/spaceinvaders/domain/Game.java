@@ -31,6 +31,8 @@ public class Game {
     private Missile missile;
     private int points;
     
+    private boolean gameOn;
+    
     public Game(){
         this.gameOver=false;
         this.player= new Player();
@@ -39,6 +41,8 @@ public class Game {
         this.random= new Random();
         this.missile=new Missile();
         this.points=0;
+        
+        this.gameOn=false;
     }
     
     public boolean getGameOver(){
@@ -99,7 +103,7 @@ public class Game {
         }
     }
     public boolean isCollision(Invader first, Missile second){
-        if(Math.sqrt(Math.pow(first.getX()-second.getX(), 2)+Math.pow(first.getY()-second.getY(), 2))<15){
+        if(Math.sqrt(Math.pow(first.getX()-second.getX(), 2)+Math.pow(first.getY()-second.getY(), 2))<20){
             return true;
         } else {
             return false;
@@ -118,6 +122,8 @@ public class Game {
                 if(this.isCollision(invaders.get(i), missile)){
                     this.setPoints(this.points+10);
                     missile.setState(false);
+                    missile.setX(195);
+                    missile.setY(350);
                     invaders.remove(i);
                     int xForInvader = rand.nextInt(340);
                     xForInvader+=20;
@@ -126,5 +132,11 @@ public class Game {
                 }
             }
         }
+    }
+    public void setGameOn(boolean on){
+        this.gameOn=on;
+    }
+    public boolean getGameOn(){
+        return this.gameOn;
     }
 }

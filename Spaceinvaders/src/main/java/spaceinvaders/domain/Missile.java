@@ -21,7 +21,7 @@ public class Missile {
     public Missile (){
         this.x=195;
         this.y=350;
-        this.speed=20;
+        this.speed=25;
         this.state = false;
         this.direction=Direction.STILL;
     }
@@ -55,6 +55,8 @@ public class Missile {
         }
         this.y-=this.speed;
         if(this.y<10){
+            this.x=195;
+            this.y=350;
             this.setState(false);
         }
     }

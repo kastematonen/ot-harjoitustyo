@@ -47,7 +47,7 @@ public class Invader {
             if(newX>360){
                 newX=360;
                 this.setDirection(Direction.LEFT);
-                this.setY(this.y+10);
+                this.setY(this.y+25);
             }
             this.setX(newX);
         } else if (this.direction==Direction.LEFT){
@@ -55,7 +55,7 @@ public class Invader {
             if(newX<20){
                 newX=20;
                 this.setDirection(Direction.RIGHT);
-                this.setY(this.y+10);
+                this.setY(this.y+25);
             }
             this.setX(newX);
         }

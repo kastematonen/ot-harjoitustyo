@@ -66,6 +66,14 @@ public class SpaceinvadersUi extends Application{
         
         Game game = new Game();
         
+        //pelinäkymä
+        BorderPane pelisivu = new BorderPane();
+        Label pisteet = new Label("pisteet: " + game.getGPoints());
+        pelisivu.setTop(pisteet);
+        pelisivu.setCenter(canvas);
+        pelisivu.setPrefSize(400, 400);
+        Scene pelinakyma= new Scene(pelisivu);
+        
         //drawing
         new AnimationTimer(){
             private long previous;
@@ -102,7 +110,7 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
-        Label pisteet = new Label("pisteet: " + game.getGPoints());
+//        Label pisteet = new Label("pisteet: " + game.getGPoints());
         
         //updating game
         new AnimationTimer(){
@@ -113,8 +121,12 @@ public class SpaceinvadersUi extends Application{
                     return;
                 }
                 previous=now;
-                game.update();
-                pisteet.setText("pisteet: " + game.getGPoints());
+                if(game.getGameOn()){
+                    game.update();
+                    pisteet.setText("pisteet: " + game.getGPoints());
+                }
+//                game.update();
+//                pisteet.setText("pisteet: " + game.getGPoints());
                 if(game.getGameOver()){
                     stop();
                 }
@@ -122,12 +134,11 @@ public class SpaceinvadersUi extends Application{
         }.start();
         
         //pelinäkymä
-        //Label pisteet = new Label("pisteet: " + game.getGPoints());
-        BorderPane pelisivu = new BorderPane();
-        pelisivu.setTop(pisteet);
-        pelisivu.setCenter(canvas);
-        pelisivu.setPrefSize(400, 400);
-        Scene pelinakyma= new Scene(pelisivu);
+//        BorderPane pelisivu = new BorderPane();
+//        pelisivu.setTop(pisteet);
+//        pelisivu.setCenter(canvas);
+//        pelisivu.setPrefSize(400, 400);
+//        Scene pelinakyma= new Scene(pelisivu);
         
         //pelinäkymä: näppäimet
         pelinakyma.setOnKeyPressed((event) -> {
@@ -155,6 +166,8 @@ public class SpaceinvadersUi extends Application{
         
         alkunakymastaPeliin.setOnAction((event) -> {
             ikkuna.setScene(pelinakyma);
+            
+            game.setGameOn(true);
         });
         
         ohjeistaAlkunakymaan.setOnAction((event) -> {
