@@ -33,7 +33,7 @@ public class Game {
         this.gameOver=false;
         this.player= new Player();
         this.invaders=new ArrayList<>();
-        this.makeInvaders(10);
+        this.makeInvaders(5);
         this.random= new Random();
         this.missile=new Missile();
     }
@@ -76,6 +76,7 @@ public class Game {
         this.missile.setX(this.player.getX());
     }
     public void update(){
+        this.isGameOver(invaders);
         if(this.gameOver){
             return;
         }
@@ -84,5 +85,12 @@ public class Game {
             this.invaders.get(i).move();
         }
         this.missile.move();
+    }
+    public void isGameOver(ArrayList<Invader> invaders){
+        for(int i=0;i<invaders.size();i++){
+            if(invaders.get(i).getY()>=this.player.getY()){
+                this.setGameOver(true);
+            }
+        }
     }
 }
