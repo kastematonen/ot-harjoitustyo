@@ -16,7 +16,6 @@ public class Player {
     private int speed;
     
     public Player (){
-        //testaa sopivat arvot vielä -lähte alalaidan keskeltä
         this.x=195;
         this.y=350;
         this.direction= Direction.STILL;
@@ -32,7 +31,6 @@ public class Player {
     public int getY(){
         return this.y;
     }
-    //tarvitaanko tätä
     public void setY(int y){
         this.y=y;
     }
@@ -41,6 +39,12 @@ public class Player {
     }
     public void setDirection(Direction direction){
         this.direction=direction;
+    }
+    public int getSpeed(){
+        return this.speed;
+    }
+    public void setSpeed(int speed){
+        this.speed=speed;
     }
     public void move(){
         int newX=this.x;
