@@ -1,20 +1,6 @@
-# Ohjelmistotekniikan harjoitustyö
+# Ohjelmistotekniikan harjoitustyö: Space Invaders -tyylinen peli
 
-Minä olen tekstiä, osa **boldattuna** ja osa *kursiivoituna*!
-
-Minä olen ~~muutos~~!! Siirtotesti!
-
-## Tehtävät
-
-### Viikko 1
-
-[gitlog.txt](https://github.com/kastematonen/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/kastematonen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
-
-[Alustava määrittelydokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
+Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle ne, ennen kuin ne ovat liian lähellä. Jokaisesta ammutusta valloittajasta saa pisteitä.
 
 ## Dokumentaatio
 
