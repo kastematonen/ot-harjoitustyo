@@ -10,14 +10,15 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
 * Aloitusnäkymä
   * voi siirtyä ohjesivulle
   * voi siityä peliin
-* peli
+* Peli
   * voi liikuttaa hahmoa oikealle ja vasemmalle nuolinäppäimistä
-  * voi ampua välilyönnistä
+  * voi ampua X-näppäimestä
   * näkee lähestyvät vastustajat
   * jos osuu ammuksella vastustajaan, saa pisteitä
   * näkee pisteet
   * jos vastustaja ehtii maahan ennen kuin se on ammuttu, peli loppuu
   * pelin loppuessa palataan aloitusnäkymään
+  * voi keskeyttää pelin painamalla siihen tarkoitettua nappia joko hiirellä tai välilyönnillä
 
 ## Jatkokehitysideoita
 * pisteiden tallentaminen nimimerkillä pelin loppuessa
