@@ -128,7 +128,14 @@ public class SpaceinvadersUi extends Application{
 //                game.update();
 //                pisteet.setText("pisteet: " + game.getGPoints());
                 if(game.getGameOver()){
-                    stop();
+                    //uusi peli tähän?
+                    System.out.println("Game over!");
+                    //vaihda pistenäkymä
+                    ikkuna.setScene(alkunakyma);
+                    //pelille uuden pelin aloittava metodi
+                    game.newGame(); 
+                    //silloin stop pois?
+                    //stop();
                 }
             }
         }.start();

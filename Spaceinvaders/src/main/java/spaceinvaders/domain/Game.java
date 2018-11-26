@@ -139,4 +139,15 @@ public class Game {
     public boolean getGameOn(){
         return this.gameOn;
     }
+    public void newGame(){
+        this.gameOver=false;
+        this.player= new Player();
+        this.invaders=new ArrayList<>();
+        this.makeInvaders(10);
+        this.random= new Random();
+        this.missile=new Missile();
+        this.points=0;
+        
+        this.gameOn=false;
+    }
 }
