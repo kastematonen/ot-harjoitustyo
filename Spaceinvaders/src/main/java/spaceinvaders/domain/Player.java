@@ -15,56 +15,56 @@ public class Player {
     private Direction direction;
     private int speed;
     
-    public Player (){
-        this.x=195;
-        this.y=350;
-        this.direction= Direction.STILL;
-        this.speed=10;
+    public Player() {
+        this.x = 195;
+        this.y = 350;
+        this.direction = Direction.STILL;
+        this.speed = 10;
     }
     //liiku
-    public int getX(){
+    public int getX() {
         return this.x;
     }
-    public void setX(int x){
-        this.x=x;
+    public void setX(int x) {
+        this.x = x;
     }
-    public int getY(){
+    public int getY() {
         return this.y;
     }
-    public void setY(int y){
-        this.y=y;
+    public void setY(int y) {
+        this.y = y;
     }
-    public Direction getDirection(){
+    public Direction getDirection() {
         return this.direction;
     }
-    public void setDirection(Direction direction){
-        this.direction=direction;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
-    public int getSpeed(){
+    public int getSpeed() {
         return this.speed;
     }
-    public void setSpeed(int speed){
-        this.speed=speed;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
-    public void move(){
-        int newX=this.x;
+    public void move() {
+        int newX = this.x;
         
-        if(this.direction == Direction.STILL){
+        if (this.direction == Direction.STILL) {
             return;
-        } else if (this.direction == Direction.RIGHT){
-            newX+=this.speed;
+        } else if (this.direction == Direction.RIGHT) {
+            newX += this.speed;
             //ei pääse reunan yli
-            if(newX>360){
-                newX=360;
+            if (newX > 360) {
+                newX = 360;
             }
-            this.x=newX;
+            this.x = newX;
         } else {
-            newX-=this.speed;
+            newX -= this.speed;
             //ei pääse reunan yli
-            if(newX<20){
-                newX=20;
+            if (newX < 20) {
+                newX = 20;
             }
-            this.x=newX;
+            this.x = newX;
         }
     }
 }

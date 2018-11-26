@@ -18,45 +18,45 @@ public class Missile {
     private boolean state;
     private Direction direction;
     
-    public Missile (){
-        this.x=195;
-        this.y=350;
-        this.speed=25;
+    public Missile() {
+        this.x = 195;
+        this.y = 350;
+        this.speed = 25;
         this.state = false;
-        this.direction=Direction.STILL;
+        this.direction = Direction.STILL;
     }
-    public int getX(){
+    public int getX() {
         return this.x;
     }
-    public void setX(int x){
-        this.x=x;
+    public void setX(int x) {
+        this.x = x;
     }
-    public int getY(){
+    public int getY() {
         return this.y;
     }
-    public void setY(int y){
-        this.y=y;
+    public void setY(int y) {
+        this.y = y;
     }
-    public boolean getState(){
+    public boolean getState() {
         return this.state;
     }
-    public void setState(boolean state){
-        this.state=state;
+    public void setState(boolean state) {
+        this.state = state;
     }
-    public Direction getDirection(){
+    public Direction getDirection() {
         return this.direction;
     }
-    public void setDirection(Direction direction){
-        this.direction=direction;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
-    public void move(){
-        if(!this.state){
+    public void move() {
+        if (!this.state) {
             return;
         }
-        this.y-=this.speed;
-        if(this.y<10){
-            this.x=195;
-            this.y=350;
+        this.y -= this.speed;
+        if (this.y < 10) {
+            this.x = 195;
+            this.y = 350;
             this.setState(false);
         }
     }

@@ -15,47 +15,47 @@ public class Invader {
     private Direction direction;
     private int speed;
     
-    public Invader(int x){
-        this.x=x;
-        this.y=20;
-        this.direction=Direction.RIGHT;
-        this.speed=10;
+    public Invader(int x) {
+        this.x = x;
+        this.y = 20;
+        this.direction = Direction.RIGHT;
+        this.speed = 10;
     }
-    public int getX(){
+    public int getX() {
         return this.x;
     }
-    public void setX(int x){
-        this.x=x;
+    public void setX(int x) {
+        this.x = x;
     }
-    public int getY(){
+    public int getY() {
         return this.y;
     }
     //tarvitaanko tätä
-    public void setY(int y){
-        this.y=y;
+    public void setY(int y) {
+        this.y = y;
     }
-    public Direction getDirection(){
+    public Direction getDirection() {
         return this.direction;
     }
-    public void setDirection(Direction direction){
-        this.direction=direction;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
-    public void move(){
-        int newX=this.x;
-        if(this.direction==Direction.RIGHT){
-            newX+=this.speed;
-            if(newX>360){
-                newX=360;
+    public void move() {
+        int newX = this.x;
+        if (this.direction == Direction.RIGHT) {
+            newX += this.speed;
+            if (newX > 360) {
+                newX = 360;
                 this.setDirection(Direction.LEFT);
-                this.setY(this.y+25);
+                this.setY(this.y + 25);
             }
             this.setX(newX);
-        } else if (this.direction==Direction.LEFT){
-            newX-=this.speed;
-            if(newX<20){
-                newX=20;
+        } else if (this.direction == Direction.LEFT) {
+            newX -= this.speed;
+            if (newX < 20) {
+                newX = 20;
                 this.setDirection(Direction.RIGHT);
-                this.setY(this.y+25);
+                this.setY(this.y + 25);
             }
             this.setX(newX);
         }
