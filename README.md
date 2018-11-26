@@ -8,3 +8,5 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 [Alustava määrittelydokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
+
+[Arkkitehtuurikuvaus]()
