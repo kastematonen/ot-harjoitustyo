@@ -23,6 +23,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import javafx.scene.control.TextField;
 import java.util.ArrayList;
 
 //tarvitaanko kaikkia näitä
@@ -71,10 +72,24 @@ public class SpaceinvadersUi extends Application{
         //pelinäkymä
         BorderPane pelisivu = new BorderPane();
         Label pisteet = new Label("pisteet: " + game.getGPoints());
-        pelisivu.setTop(pisteet);
+        Button pelistaAlkunakymaan = new Button("Keskeytä peli");
+        HBox upButtons = new HBox();
+        upButtons.getChildren().add(pisteet);
+        upButtons.getChildren().add(pelistaAlkunakymaan);
+        upButtons.setSpacing(20);
+        pelisivu.setTop(upButtons);
         pelisivu.setCenter(canvas);
         pelisivu.setPrefSize(400, 400);
         Scene pelinakyma= new Scene(pelisivu);
+        
+//        //pelin loppunäkymä
+//        BorderPane tulossivu = new BorderPane();
+//        Label loppuPisteet = new Label("pisteet: " + game.getGPoints());
+//        TextField tekstikentta = new TextField("Teksti");
+//        pelisivu.setCenter(loppuPisteet);
+//        pelisivu.setCenter(tekstikentta);
+//        pelisivu.setPrefSize(400, 400);
+//        Scene tulosnakyma= new Scene(tulossivu);
         
         //drawing
         new AnimationTimer(){
@@ -90,14 +105,8 @@ public class SpaceinvadersUi extends Application{
                 drawer.setFill(Color.BLACK);
                 drawer.fillRect(0, 0, 400, 380);
                 //sininen pelaaja 
-                //ympyränä
                 drawer.setFill(Color.BLUE);
                 drawer.fillOval(game.getPlayer().getX(), game.getPlayer().getY(), 20, 20);
-                //kolmiona
-//                double xpoints[]={game.getPlayer().getX()-10, game.getPlayer().getX()+10};
-//                double ypoints[]={20};
-//                int npoints = 3;
-//                drawer.fillPolygon(xpoints, ypoints, npoints);
                 //punainen valtaaja
                 drawer.setFill(Color.RED);
                 ArrayList<Invader> invaders= game.getInvaders();
@@ -130,6 +139,7 @@ public class SpaceinvadersUi extends Application{
 
                 if(game.getGameOver()){
                     //vaihda pistenäkymä
+                    //ikkuna.setScene(tulosnakyma);
                     ikkuna.setScene(alkunakyma);
                     //pelille uuden pelin aloittava metodi
                     game.newGame(); 
@@ -143,7 +153,7 @@ public class SpaceinvadersUi extends Application{
                 game.getPlayer().setDirection(Direction.RIGHT);
             } else if(event.getCode().equals(KeyCode.LEFT)){
                 game.getPlayer().setDirection(Direction.LEFT);
-            } else if(event.getCode().equals(KeyCode.SPACE) && game.getMissile().getState()==false){
+            } else if(event.getCode().equals(KeyCode.X) && game.getMissile().getState()==false){
                 game.launchMissile();
             }
         });
@@ -175,6 +185,10 @@ public class SpaceinvadersUi extends Application{
             ikkuna.close();
         });
         
+        pelistaAlkunakymaan.setOnAction((event) -> {
+            game.newGame();
+            ikkuna.setScene(alkunakyma);
+        });
         
         
         ikkuna.setScene(alkunakyma);
