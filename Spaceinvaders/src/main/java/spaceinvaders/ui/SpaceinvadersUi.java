@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -54,9 +55,19 @@ public class SpaceinvadersUi extends Application{
         
         //ohjenakyma
         Label ohjeteksti = new Label("Space Invaders -pelin ohjeet");
+        Label ohjeteksti1 = new Label("Pelaajan hahmo on sininen ja se liikkuu nuolinäppäimistä sekö ampuu X-näppäimestä.");
+        Label ohjeteksti2 = new Label("Vastustajat ovat punaisia, ja ne pitää ampua ennen kuin ne ehtivät maahan asti. Osuessaan vastustajaan saa pisteitä.");
+        Label ohjeteksti3 = new Label("Pisteesi näet pelin vasemmasta yläkulmasta, ja pelin voit keskeyttää keskeytä-nappulasta pelin aikana.");
+        VBox rules = new VBox();
+        rules.setSpacing(5);
+        rules.getChildren().add(ohjeteksti1);
+        rules.getChildren().add(ohjeteksti2);
+        rules.getChildren().add(ohjeteksti3);
         Button ohjeistaAlkunakymaan = new Button("Etusivulle");
         BorderPane ohjesivu = new BorderPane();
+        
         ohjesivu.setTop(ohjeteksti);
+        ohjesivu.setCenter(rules);
         ohjesivu.setBottom(ohjeistaAlkunakymaan);
         ohjesivu.setPrefSize(400, 400);
         ohjesivu.setPadding(new Insets(20, 20, 20, 20));
