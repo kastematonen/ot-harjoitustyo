@@ -38,11 +38,13 @@ public class SpaceinvadersUi extends Application{
         Label tervetuloteksti = new Label("Space Invaders");
         Button alkunakymastaOhjeisiin = new Button("Ohjeisiin");
         Button alkunakymastaPeliin = new Button("Peliin");
+        Button exit = new Button("Lopeta");
         BorderPane etusivu = new BorderPane();
         etusivu.setCenter(tervetuloteksti);
         HBox etusivunPalkki = new HBox();
         etusivunPalkki.getChildren().add(alkunakymastaOhjeisiin);
         etusivunPalkki.getChildren().add(alkunakymastaPeliin);
+        etusivunPalkki.getChildren().add(exit);
         etusivunPalkki.setSpacing(10);
         etusivu.setBottom(etusivunPalkki);
         etusivu.setPrefSize(400, 400);
@@ -125,17 +127,12 @@ public class SpaceinvadersUi extends Application{
                     game.update();
                     pisteet.setText("pisteet: " + game.getGPoints());
                 }
-//                game.update();
-//                pisteet.setText("pisteet: " + game.getGPoints());
+
                 if(game.getGameOver()){
-                    //uusi peli tähän?
-                    System.out.println("Game over!");
                     //vaihda pistenäkymä
                     ikkuna.setScene(alkunakyma);
                     //pelille uuden pelin aloittava metodi
                     game.newGame(); 
-                    //silloin stop pois?
-                    //stop();
                 }
             }
         }.start();
@@ -172,6 +169,10 @@ public class SpaceinvadersUi extends Application{
         
         ohjeistaAlkunakymaan.setOnAction((event) -> {
             ikkuna.setScene(alkunakyma);
+        });
+        
+        exit.setOnAction((event)->{
+            ikkuna.close();
         });
         
         
