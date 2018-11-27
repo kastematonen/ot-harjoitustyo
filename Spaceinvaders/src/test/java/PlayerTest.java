@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
 import spaceinvaders.domain.Player; 
 import spaceinvaders.domain.Direction;
 
+import spaceinvaders.domain.Missile; 
+
 /**
  *
  * @author julia
@@ -119,4 +121,5 @@ public class PlayerTest {
         player.move();
         assertEquals(20, player.getX());
     }
+    
 }

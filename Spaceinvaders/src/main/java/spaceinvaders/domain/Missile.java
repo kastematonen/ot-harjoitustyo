@@ -49,6 +49,12 @@ public class Missile {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+    public int getSpeed() {
+        return this.speed;
+    }
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
     public void move() {
         if (!this.state) {
             return;
