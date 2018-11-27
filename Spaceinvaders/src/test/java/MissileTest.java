@@ -103,4 +103,17 @@ public class MissileTest {
         missile.move();
         assertEquals(350, missile.getY());
     }
+    @Test
+    public void movementWhenStateIsTrue(){
+        missile.setState(true);
+        missile.move();
+        assertEquals(325, missile.getY());
+    }
+    @Test
+    public void movemenNotOverEdgeY(){
+        missile.setState(true);
+        missile.setY(5);
+        missile.move();
+        assertEquals(350, missile.getY());
+    }
 }
