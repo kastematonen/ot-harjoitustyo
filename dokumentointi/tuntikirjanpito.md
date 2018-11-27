@@ -9,4 +9,5 @@ päivä | aika | mitä tein
 17.11. | 2 | peli loppuu ajallaan; ampuminen tuo pisteitä, hävittää vastustajan ja synnyttää sen putoamaan alusta; peli ei käynnissä taustalla, vaikka ei olla pelinäkymässä
 18.11. | 2 | testien tekoa, .gitignoren ja readme:n päivitys
 26.11. | 3 | peli loputtua aloitusnäkymään, josta voi aloittaa uuden pelin; checkstyle käyttöön ja koodin siistimistä; luokkakaavion lisääminen; readme:n päivitys
+27.11. | 1 | nimet englanniksi, pluginin lisäys
 yht | 13,5 | 
