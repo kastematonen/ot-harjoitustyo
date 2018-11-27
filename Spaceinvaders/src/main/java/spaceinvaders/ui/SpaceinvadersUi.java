@@ -37,44 +37,44 @@ public class SpaceinvadersUi extends Application{
     @Override
     public void start(Stage ikkuna) {
         //etusivu
-        Label tervetuloteksti = new Label("Space Invaders");
-        Button alkunakymastaOhjeisiin = new Button("Ohjeisiin");
-        Button alkunakymastaPeliin = new Button("Peliin");
+        Label welcomeText = new Label("Space Invaders");
+        Button beginningToDirections = new Button("Ohjeisiin");
+        Button beginningToGame = new Button("Peliin");
         Button exit = new Button("Lopeta");
-        BorderPane etusivu = new BorderPane();
-        etusivu.setCenter(tervetuloteksti);
-        HBox etusivunPalkki = new HBox();
-        etusivunPalkki.getChildren().add(alkunakymastaOhjeisiin);
-        etusivunPalkki.getChildren().add(alkunakymastaPeliin);
-        etusivunPalkki.getChildren().add(exit);
-        etusivunPalkki.setSpacing(10);
-        etusivu.setBottom(etusivunPalkki);
-        etusivu.setPrefSize(400, 400);
-        etusivu.setPadding(new Insets(20, 20, 20, 20));
-        Scene alkunakyma= new Scene(etusivu);
+        BorderPane frontpage = new BorderPane();
+        frontpage.setCenter(welcomeText);
+        HBox frontpageMenu = new HBox();
+        frontpageMenu.getChildren().add(beginningToDirections);
+        frontpageMenu.getChildren().add(beginningToGame);
+        frontpageMenu.getChildren().add(exit);
+        frontpageMenu.setSpacing(10);
+        frontpage.setBottom(frontpageMenu);
+        frontpage.setPrefSize(400, 400);
+        frontpage.setPadding(new Insets(20, 20, 20, 20));
+        Scene beginningPage= new Scene(frontpage);
         
         //ohjenakyma
-        Label ohjeteksti = new Label("Space Invaders -pelin ohjeet");
-        Label ohjeteksti1 = new Label("Pelaajan hahmo on sininen ja se liikkuu nuolinäppäimistä sekä ampuu X-näppäimestä.");
-        Label ohjeteksti2 = new Label("Vastustajat ovat punaisia, ja ne pitää ampua ennen kuin ne ehtivät maahan asti. Osuessaan vastustajaan ammuksella pelaaja saa pisteitä.");
-        Label ohjeteksti3 = new Label("Pisteesi näet pelin vasemmasta yläkulmasta, ja pelin voit keskeyttää keskeytä-nappulasta pelin aikana.");
-        ohjeteksti1.setWrapText(true);
-        ohjeteksti2.setWrapText(true);
-        ohjeteksti3.setWrapText(true);
+        Label header = new Label("Space Invaders -pelin ohjeet");
+        Label rule1 = new Label("Pelaajan hahmo on sininen ja se liikkuu nuolinäppäimistä sekä ampuu X-näppäimestä.");
+        Label rule2 = new Label("Vastustajat ovat punaisia, ja ne pitää ampua ennen kuin ne ehtivät maahan asti. Osuessaan vastustajaan ammuksella pelaaja  saa pisteitä.");
+        Label rule3 = new Label("Pisteesi näet pelin vasemmasta yläkulmasta, ja pelin voit keskeyttää keskeytä-nappulasta pelin aikana.");
+        rule1.setWrapText(true);
+        rule2.setWrapText(true);
+        rule3.setWrapText(true);
         VBox rules = new VBox();
         rules.setSpacing(5);
-        rules.getChildren().add(ohjeteksti1);
-        rules.getChildren().add(ohjeteksti2);
-        rules.getChildren().add(ohjeteksti3);
-        Button ohjeistaAlkunakymaan = new Button("Etusivulle");
-        BorderPane ohjesivu = new BorderPane();
+        rules.getChildren().add(rule1);
+        rules.getChildren().add(rule2);
+        rules.getChildren().add(rule3);
+        Button directionsToBeginning = new Button("Etusivulle");
+        BorderPane rulePage = new BorderPane();
         
-        ohjesivu.setTop(ohjeteksti);
-        ohjesivu.setCenter(rules);
-        ohjesivu.setBottom(ohjeistaAlkunakymaan);
-        ohjesivu.setPrefSize(400, 400);
-        ohjesivu.setPadding(new Insets(20, 20, 20, 20));
-        Scene ohjenakyma= new Scene(ohjesivu);
+        rulePage.setTop(header);
+        rulePage.setCenter(rules);
+        rulePage.setBottom(directionsToBeginning);
+        rulePage.setPrefSize(400, 400);
+        rulePage.setPadding(new Insets(20, 20, 20, 20));
+        Scene ruleview= new Scene(rulePage);
         
         //pelinäkymän piirtäminen
         
@@ -84,26 +84,26 @@ public class SpaceinvadersUi extends Application{
         Game game = new Game();
         
         //pelinäkymä
-        BorderPane pelisivu = new BorderPane();
-        Label pisteet = new Label("pisteet: " + game.getGPoints());
-        Button pelistaAlkunakymaan = new Button("Keskeytä peli");
+        BorderPane gamePage = new BorderPane();
+        Label points = new Label("pisteet: " + game.getGPoints());
+        Button gameToBeginning = new Button("Keskeytä peli");
         HBox upButtons = new HBox();
-        upButtons.getChildren().add(pisteet);
-        upButtons.getChildren().add(pelistaAlkunakymaan);
+        upButtons.getChildren().add(points);
+        upButtons.getChildren().add(gameToBeginning);
         upButtons.setSpacing(20);
-        pelisivu.setTop(upButtons);
-        pelisivu.setCenter(canvas);
-        pelisivu.setPrefSize(400, 400);
-        Scene pelinakyma= new Scene(pelisivu);
+        gamePage.setTop(upButtons);
+        gamePage.setCenter(canvas);
+        gamePage.setPrefSize(400, 400);
+        Scene gameview= new Scene(gamePage);
         
 //        //pelin loppunäkymä
-//        BorderPane tulossivu = new BorderPane();
-//        Label loppuPisteet = new Label("pisteet: " + game.getGPoints());
-//        TextField tekstikentta = new TextField("Teksti");
-//        pelisivu.setCenter(loppuPisteet);
-//        pelisivu.setCenter(tekstikentta);
-//        pelisivu.setPrefSize(400, 400);
-//        Scene tulosnakyma= new Scene(tulossivu);
+//        BorderPane resultpage = new BorderPane();
+//        Label endPoints = new Label("pisteet: " + game.getGPoints());
+//        TextField textfield = new TextField("Teksti");
+//        resultpage.setCenter(loppuPisteet);
+//        resultpage.setCenter(tekstikentta);
+//        resultpage.setPrefSize(400, 400);
+//        Scene resultview= new Scene(resultpage);
         
         //drawing
         new AnimationTimer(){
@@ -135,7 +135,7 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
-//        Label pisteet = new Label("pisteet: " + game.getGPoints());
+
         
         //updating game
         new AnimationTimer(){
@@ -148,13 +148,13 @@ public class SpaceinvadersUi extends Application{
                 previous=now;
                 if(game.getGameOn()){
                     game.update();
-                    pisteet.setText("pisteet: " + game.getGPoints());
+                    points.setText("pisteet: " + game.getGPoints());
                 }
 
                 if(game.getGameOver()){
-                    //vaihda pistenäkymä
-                    //ikkuna.setScene(tulosnakyma);
-                    ikkuna.setScene(alkunakyma);
+                    //vaihda pistenäkymä alkuun siirtymisen tilalla?
+                    //ikkuna.setScene(resultview);
+                    ikkuna.setScene(beginningPage);
                     //pelille uuden pelin aloittava metodi
                     game.newGame(); 
                 }
@@ -162,7 +162,7 @@ public class SpaceinvadersUi extends Application{
         }.start();
         
         //pelinäkymä: näppäimet
-        pelinakyma.setOnKeyPressed((event) -> {
+        gameview.setOnKeyPressed((event) -> {
             if(event.getCode().equals(KeyCode.RIGHT)){
                 game.getPlayer().setDirection(Direction.RIGHT);
             } else if(event.getCode().equals(KeyCode.LEFT)){
@@ -172,7 +172,7 @@ public class SpaceinvadersUi extends Application{
             }
         });
         
-        pelinakyma.setOnKeyReleased((event) -> {
+        gameview.setOnKeyReleased((event) -> {
             if(event.getCode().equals(KeyCode.RIGHT)){
                 game.getPlayer().setDirection(Direction.STILL);
             } else if(event.getCode().equals(KeyCode.LEFT)){
@@ -181,31 +181,31 @@ public class SpaceinvadersUi extends Application{
         });
         
         //napit
-        alkunakymastaOhjeisiin.setOnAction((event) -> {
-            ikkuna.setScene(ohjenakyma);
+        beginningToDirections.setOnAction((event) -> {
+            ikkuna.setScene(ruleview);
         });
         
-        alkunakymastaPeliin.setOnAction((event) -> {
-            ikkuna.setScene(pelinakyma);
-            //peli ei pyöri taustalla, vaikka sinne ei siirrytä heti alkunäkymästä
+        beginningToGame.setOnAction((event) -> {
+            ikkuna.setScene(gameview);
+            //peli ei pyöri taustalla, vaikka sinne ei siirrytä heti alkunäkymästä:
             game.setGameOn(true);
         });
         
-        ohjeistaAlkunakymaan.setOnAction((event) -> {
-            ikkuna.setScene(alkunakyma);
+        directionsToBeginning.setOnAction((event) -> {
+            ikkuna.setScene(beginningPage);
         });
         
         exit.setOnAction((event)->{
             ikkuna.close();
         });
         
-        pelistaAlkunakymaan.setOnAction((event) -> {
+        gameToBeginning.setOnAction((event) -> {
             game.newGame();
-            ikkuna.setScene(alkunakyma);
+            ikkuna.setScene(beginningPage);
         });
         
         
-        ikkuna.setScene(alkunakyma);
+        ikkuna.setScene(beginningPage);
         ikkuna.show();
     }
 

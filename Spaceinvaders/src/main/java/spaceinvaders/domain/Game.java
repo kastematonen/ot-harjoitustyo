@@ -14,15 +14,6 @@ import java.util.Random;
 import java.lang.Math;
 
 public class Game {
-    //loppu
-    //päivitä
-        //player.liiku
-        //invaser.liiku
-        //ammus.liiku
-        //osuuko ammus invaderiin
-            //iuusi invader
-    //uusi invader
-    //osuuko ammus invaderiin
     
     private boolean gameOver;
     private Player player;
@@ -147,7 +138,6 @@ public class Game {
         this.random = new Random();
         this.missile = new Missile();
         this.points = 0;
-        
         this.gameOn = false;
     }
 }
