@@ -10,4 +10,5 @@ päivä | aika | mitä tein
 18.11. | 2 | testien tekoa, .gitignoren ja readme:n päivitys
 26.11. | 3 | peli loputtua aloitusnäkymään, josta voi aloittaa uuden pelin; checkstyle käyttöön ja koodin siistimistä; luokkakaavion lisääminen; readme:n päivitys
 27.11. | 3 | nimet englanniksi, pluginin lisäys
-yht | 16,5 | 
+3.12. | 4 | pistenäkymä ja loppunäkymä, tietokannan lisäämisen kanssa säätämistä
+yht | 20,5 | 
