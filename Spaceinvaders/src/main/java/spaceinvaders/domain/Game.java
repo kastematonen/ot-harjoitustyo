@@ -12,6 +12,7 @@ package spaceinvaders.domain;
 import java.util.ArrayList;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Collections;
 
 import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
@@ -28,6 +29,8 @@ public class Game {
     
     //private Database db;
     
+    private ArrayList<Point> topPoints;
+    
     private boolean gameOn;
     
     public Game() {
@@ -40,7 +43,10 @@ public class Game {
         //this.points = 0;
         this.gameOn = false;
         this.point = new Point();
+        //miksi tämä antaa erroria, sanoo ettei database-tiedostoa löydy
         //this.db = new Database("jdbc:sqlite:database.db");
+        
+        this.topPoints = new ArrayList<>();
     }
     
     public boolean getGameOver() {
@@ -60,6 +66,12 @@ public class Game {
     }
     public void setInvaders(ArrayList invaders) {
         this.invaders = invaders;
+    }
+    public ArrayList getTopPoints() {
+        return this.topPoints;
+    }
+    public void setTopPoints(ArrayList topPoints) {
+        this.topPoints = topPoints;
     }
     public void makeInvaders(int howMany) {
         Random rand = new Random();
@@ -113,11 +125,17 @@ public class Game {
 //    public void setPoints(int points) {
 //        this.points = points;
 //    }
-    public int getGetPoints() {
+    public int getPoints() {
         return this.point.getPoints();
     }
     public void setPoints(int points) {
         this.point.setPoints(points);
+    }
+    public Point getPoint() {
+        return this.point;
+    }
+    public void setPoint(Point points) {
+        this.point = points;
     }
     
     public void handleCollision(Missile missile, ArrayList<Invader> invaders) {
@@ -125,6 +143,7 @@ public class Game {
         if (missile.getState()) {
             for (int i = 0; i < invaders.size(); i++) {
                 if (this.isCollision(invaders.get(i), missile)) {
+                    
                     //this.setPoints(this.points + 10);
                     this.point.add(10);
                     
@@ -157,4 +176,16 @@ public class Game {
         this.point = new Point();
         this.gameOn = false;
     }
+    public void addPointsToList(Point point) {
+        this.topPoints.add(point);
+        Collections.sort(topPoints);
+        
+        if (this.topPoints.size() > 10) {
+            this.topPoints.remove(this.topPoints.size() - 1);
+        }
+    }
+    public void sortTopPoints() {
+        Collections.sort(topPoints);
+    }
+    
 }

@@ -9,7 +9,7 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
-public class Point {
+public class Point implements Comparable<Point> {
     Integer id;
     private int points;
     private Player player;
@@ -43,5 +43,15 @@ public class Point {
     
     public void setId(int id) {
         this.id = id;
+    }
+    
+    @Override
+    public int compareTo(Point point) {
+        return points - this.points;
+    }
+    
+    @Override
+    public String toString() {
+        return this.points + "\t" + this.player.getName();
     }
 }

@@ -25,18 +25,21 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.*;
+import java.util.stream.Collectors;
 
 //tarvitaanko kaikkia näitä
 import spaceinvaders.domain.Direction;
 import spaceinvaders.domain.Game;
 import spaceinvaders.domain.Invader;
 import spaceinvaders.domain.Player;
+import spaceinvaders.domain.Point;
 
 public class SpaceinvadersUi extends Application{
     @Override
     public void start(Stage ikkuna) {
+        
         //etusivu
         Label welcomeText = new Label("Space Invaders");
         Button beginningToDirections = new Button("Ohjeisiin");
@@ -79,16 +82,6 @@ public class SpaceinvadersUi extends Application{
         rulePage.setPadding(new Insets(20, 20, 20, 20));
         Scene ruleview= new Scene(rulePage);
         
-        //pistenäkymä
-        Label pointsHeader = new Label("Parhaat pisteet:");
-        Button pointsToBeginning = new Button("Etusivulle");
-        BorderPane pointsPage = new BorderPane();
-        pointsPage.setTop(pointsHeader);
-        pointsPage.setBottom(pointsToBeginning);
-        pointsPage.setPrefSize(400, 400);
-        pointsPage.setPadding(new Insets(20, 20, 20, 20));
-        Scene pointsScene = new Scene(pointsPage);
-        
         //pelinäkymän piirtäminen
         
         Canvas canvas = new Canvas(400,380);
@@ -96,9 +89,31 @@ public class SpaceinvadersUi extends Application{
         
         Game game = new Game();
         
+        //pistenäkymä
+        Label pointsHeader = new Label("Parhaat pisteet:");
+        Button pointsToBeginning = new Button("Etusivulle");
+        BorderPane pointsPage = new BorderPane();
+        pointsPage.setTop(pointsHeader);
+        pointsPage.setBottom(pointsToBeginning);
+        
+        
+//        VBox pointTable = new VBox();
+//        pointTable.setSpacing(5);
+//        for(int i=0;i<game.getTopPoints().size();i++){
+//            String text = game.getTopPoints().get(i).toString();
+//            pointTable.getChildren().add(new Label(text));
+//        }
+//        pointsPage.setCenter(pointTable);
+//        
+        pointsPage.setPrefSize(400, 400);
+        pointsPage.setPadding(new Insets(20, 20, 20, 20));
+        Scene pointsScene = new Scene(pointsPage);
+        
+        
+        
         //pelinäkymä
         BorderPane gamePage = new BorderPane();
-        Label points = new Label("pisteet: " + game.getGetPoints());
+        Label points = new Label("pisteet: " + game.getPoints());
         Button gameToBeginning = new Button("Keskeytä peli");
         HBox upButtons = new HBox();
         upButtons.getChildren().add(points);
@@ -111,8 +126,7 @@ public class SpaceinvadersUi extends Application{
         
         //pelin loppunäkymä
         BorderPane resultpage = new BorderPane();
-        Label endPoints = new Label("pisteesi: " + game.getGetPoints());
-        Button endToBeginning = new Button("Aloitussivulle");
+        Label endPoints = new Label("pisteesi: " + game.getPoints());
         Button savePoints = new Button("Tallenna pisteet");
         TextField playerName = new TextField("Nimi");
         VBox endTexts = new VBox();
@@ -121,7 +135,6 @@ public class SpaceinvadersUi extends Application{
         endTexts.getChildren().add(playerName);
         endTexts.getChildren().add(savePoints);
         resultpage.setCenter(endTexts);
-        resultpage.setBottom(endToBeginning);
         resultpage.setPrefSize(400, 400);
         resultpage.setPadding(new Insets(20, 20, 20, 20));
         Scene resultview= new Scene(resultpage);
@@ -167,14 +180,12 @@ public class SpaceinvadersUi extends Application{
                 previous=now;
                 if(game.getGameOn()){
                     game.update();
-                    points.setText("pisteet: " + game.getGetPoints());
+                    points.setText("pisteet: " + game.getPoints());
                 }
 
                 if(game.getGameOver()){
-                    endPoints.setText("pistesi: " + game.getGetPoints());
+                    endPoints.setText("pistesi: " + game.getPoints());
                     ikkuna.setScene(resultview);
-                    //pelille uuden pelin aloittava metodi
-                    game.newGame(); 
                 }
             }
         }.start();
@@ -230,10 +241,6 @@ public class SpaceinvadersUi extends Application{
             ikkuna.setScene(pointsScene);
         });
         
-        endToBeginning.setOnAction((event) -> {
-            ikkuna.setScene(beginningPage);
-        });
-        
         savePoints.setOnAction((event) -> {
             //tänne jotain, tyyliin:
             //Henkilo lisattava = new Henkilo(nimiTeksti.getText(), hetuTeksti.getText());
@@ -242,7 +249,38 @@ public class SpaceinvadersUi extends Application{
             String[] pieces = endPoints.getText().split(" ");
             int pointsToSave = Integer.parseInt(pieces[1]);
             String nameToSave = playerName.getText();
-            System.out.println(pointsToSave + nameToSave);
+            //toimii
+            //System.out.println(pointsToSave + " " + nameToSave);
+            game.getPlayer().setName(nameToSave);
+            game.getPoint().setPoints(pointsToSave);
+            game.getPoint().setPlayer(game.getPlayer());
+            game.addPointsToList(game.getPoint());
+            
+            VBox pointTable = new VBox();
+            pointTable.setSpacing(5);
+            
+            if(game.getTopPoints().size() != 0) {
+                //järjestäminen ei toimi?
+                //game.sortTopPoints();
+                List<Point> uusi = game.getTopPoints();
+                List<Point> uusi2 = new ArrayList<>();
+                uusi.stream().sorted().forEach(k -> uusi2.add(k));
+                uusi2.stream().forEach(k -> System.out.println(k));
+                
+                //ArrayList<Point> uusi = game.getTopPoints().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
+                
+                for(int i=0;i<game.getTopPoints().size();i++){
+                    System.out.println(game.getTopPoints().get(i).toString());
+                }
+                for(int i=0;i<game.getTopPoints().size();i++){
+                    String text = game.getTopPoints().get(i).toString();
+                    pointTable.getChildren().add(new Label(text));
+                }
+                pointsPage.setCenter(pointTable);
+            }
+            game.newGame();
+            ikkuna.setScene(beginningPage);
+            
         });
         
         ikkuna.setScene(beginningPage);
