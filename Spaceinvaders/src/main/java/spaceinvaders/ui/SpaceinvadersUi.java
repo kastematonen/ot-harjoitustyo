@@ -98,7 +98,7 @@ public class SpaceinvadersUi extends Application{
         
         //pelinäkymä
         BorderPane gamePage = new BorderPane();
-        Label points = new Label("pisteet: " + game.getGPoints());
+        Label points = new Label("pisteet: " + game.getGetPoints());
         Button gameToBeginning = new Button("Keskeytä peli");
         HBox upButtons = new HBox();
         upButtons.getChildren().add(points);
@@ -111,7 +111,7 @@ public class SpaceinvadersUi extends Application{
         
         //pelin loppunäkymä
         BorderPane resultpage = new BorderPane();
-        Label endPoints = new Label("pisteesi: " + game.getGPoints());
+        Label endPoints = new Label("pisteesi: " + game.getGetPoints());
         Button endToBeginning = new Button("Aloitussivulle");
         Button savePoints = new Button("Tallenna pisteet");
         TextField playerName = new TextField("Nimi");
@@ -167,11 +167,11 @@ public class SpaceinvadersUi extends Application{
                 previous=now;
                 if(game.getGameOn()){
                     game.update();
-                    points.setText("pisteet: " + game.getGPoints());
+                    points.setText("pisteet: " + game.getGetPoints());
                 }
 
                 if(game.getGameOver()){
-                    endPoints.setText("pistesi: " + game.getGPoints());
+                    endPoints.setText("pistesi: " + game.getGetPoints());
                     ikkuna.setScene(resultview);
                     //pelille uuden pelin aloittava metodi
                     game.newGame(); 
@@ -235,7 +235,14 @@ public class SpaceinvadersUi extends Application{
         });
         
         savePoints.setOnAction((event) -> {
-            //tänne jotain
+            //tänne jotain, tyyliin:
+            //Henkilo lisattava = new Henkilo(nimiTeksti.getText(), hetuTeksti.getText());
+            //henkilovarasto.talleta(new Henkilo(lisattava);
+            
+            String[] pieces = endPoints.getText().split(" ");
+            int pointsToSave = Integer.parseInt(pieces[1]);
+            String nameToSave = playerName.getText();
+            System.out.println(pointsToSave + nameToSave);
         });
         
         ikkuna.setScene(beginningPage);

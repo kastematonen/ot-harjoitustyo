@@ -113,7 +113,7 @@ public class Game {
 //    public void setPoints(int points) {
 //        this.points = points;
 //    }
-    public int getGPoints() {
+    public int getGetPoints() {
         return this.point.getPoints();
     }
     public void setPoints(int points) {
