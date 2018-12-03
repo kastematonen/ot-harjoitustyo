@@ -110,7 +110,7 @@ public class MissileTest {
         assertEquals(325, missile.getY());
     }
     @Test
-    public void movemenNotOverEdgeY(){
+    public void movemenNotOverEdge(){
         missile.setState(true);
         missile.setY(5);
         missile.move();

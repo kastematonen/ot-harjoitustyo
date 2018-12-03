@@ -40,12 +40,14 @@ public class SpaceinvadersUi extends Application{
         Label welcomeText = new Label("Space Invaders");
         Button beginningToDirections = new Button("Ohjeisiin");
         Button beginningToGame = new Button("Peliin");
+        Button beginningToPoints = new Button("Huippupisteet");
         Button exit = new Button("Lopeta");
         BorderPane frontpage = new BorderPane();
         frontpage.setCenter(welcomeText);
         HBox frontpageMenu = new HBox();
         frontpageMenu.getChildren().add(beginningToDirections);
         frontpageMenu.getChildren().add(beginningToGame);
+        frontpageMenu.getChildren().add(beginningToPoints);
         frontpageMenu.getChildren().add(exit);
         frontpageMenu.setSpacing(10);
         frontpage.setBottom(frontpageMenu);
@@ -76,6 +78,16 @@ public class SpaceinvadersUi extends Application{
         rulePage.setPadding(new Insets(20, 20, 20, 20));
         Scene ruleview= new Scene(rulePage);
         
+        //pistenäkymä
+        Label pointsHeader = new Label("Parhaat pisteet:");
+        Button pointsToBeginning = new Button("Etusivulle");
+        BorderPane pointsPage = new BorderPane();
+        pointsPage.setTop(pointsHeader);
+        pointsPage.setBottom(pointsToBeginning);
+        pointsPage.setPrefSize(400, 400);
+        pointsPage.setPadding(new Insets(20, 20, 20, 20));
+        Scene pointsScene = new Scene(pointsPage);
+        
         //pelinäkymän piirtäminen
         
         Canvas canvas = new Canvas(400,380);
@@ -96,14 +108,22 @@ public class SpaceinvadersUi extends Application{
         gamePage.setPrefSize(400, 400);
         Scene gameview= new Scene(gamePage);
         
-//        //pelin loppunäkymä
-//        BorderPane resultpage = new BorderPane();
-//        Label endPoints = new Label("pisteet: " + game.getGPoints());
-//        TextField textfield = new TextField("Teksti");
-//        resultpage.setCenter(loppuPisteet);
-//        resultpage.setCenter(tekstikentta);
-//        resultpage.setPrefSize(400, 400);
-//        Scene resultview= new Scene(resultpage);
+        //pelin loppunäkymä
+        BorderPane resultpage = new BorderPane();
+        Label endPoints = new Label("pisteesi: " + game.getGPoints());
+        Button endToBeginning = new Button("Aloitussivulle");
+        Button savePoints = new Button("Tallenna pisteet");
+        TextField playerName = new TextField("Nimi");
+        VBox endTexts = new VBox();
+        endTexts.setSpacing(5);
+        endTexts.getChildren().add(endPoints);
+        endTexts.getChildren().add(playerName);
+        endTexts.getChildren().add(savePoints);
+        resultpage.setCenter(endTexts);
+        resultpage.setBottom(endToBeginning);
+        resultpage.setPrefSize(400, 400);
+        resultpage.setPadding(new Insets(20, 20, 20, 20));
+        Scene resultview= new Scene(resultpage);
         
         //drawing
         new AnimationTimer(){
@@ -135,8 +155,6 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
-
-        
         //updating game
         new AnimationTimer(){
             private long previous;
@@ -152,9 +170,8 @@ public class SpaceinvadersUi extends Application{
                 }
 
                 if(game.getGameOver()){
-                    //vaihda pistenäkymä alkuun siirtymisen tilalla?
-                    //ikkuna.setScene(resultview);
-                    ikkuna.setScene(beginningPage);
+                    endPoints.setText("pistesi: " + game.getGPoints());
+                    ikkuna.setScene(resultview);
                     //pelille uuden pelin aloittava metodi
                     game.newGame(); 
                 }
@@ -204,6 +221,21 @@ public class SpaceinvadersUi extends Application{
             ikkuna.setScene(beginningPage);
         });
         
+        pointsToBeginning.setOnAction((event) -> {
+            ikkuna.setScene(beginningPage);
+        });
+        
+        beginningToPoints.setOnAction((event) -> {
+            ikkuna.setScene(pointsScene);
+        });
+        
+        endToBeginning.setOnAction((event) -> {
+            ikkuna.setScene(beginningPage);
+        });
+        
+        savePoints.setOnAction((event) -> {
+            //tänne jotain
+        });
         
         ikkuna.setScene(beginningPage);
         ikkuna.show();

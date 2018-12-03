@@ -10,18 +10,22 @@ package spaceinvaders.domain;
  * @author julia
  */
 public class Player {
+    private int id;
     private int x;
     private int y;
     private Direction direction;
     private int speed;
+    private String name;
     
     public Player() {
         this.x = 195;
         this.y = 350;
         this.direction = Direction.STILL;
         this.speed = 10;
+        this.name = "";
+        this.id = -1;
     }
-    //liiku
+    
     public int getX() {
         return this.x;
     }
@@ -45,6 +49,18 @@ public class Player {
     }
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getId(){
+        return this.id;
+    }
+    public void setId(int id){
+        this.id = id;
     }
     public void move() {
         int newX = this.x;

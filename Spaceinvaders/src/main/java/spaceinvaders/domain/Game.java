@@ -20,7 +20,8 @@ public class Game {
     private ArrayList<Invader> invaders;
     private Random random;
     private Missile missile;
-    private int points;
+    //private int points;
+    private Point point;
     
     private boolean gameOn;
     
@@ -31,9 +32,10 @@ public class Game {
         this.makeInvaders(10);
         this.random = new Random();
         this.missile = new Missile();
-        this.points = 0;
-        
+        //this.points = 0;
         this.gameOn = false;
+        
+        this.point = new Point();
     }
     
     public boolean getGameOver() {
@@ -100,18 +102,27 @@ public class Game {
             return false;
         }
     }
+//    public int getGPoints() {
+//        return this.points;
+//    }
+//    public void setPoints(int points) {
+//        this.points = points;
+//    }
     public int getGPoints() {
-        return this.points;
+        return this.point.getPoints();
     }
     public void setPoints(int points) {
-        this.points = points;
+        this.point.setPoints(points);
     }
+    
     public void handleCollision(Missile missile, ArrayList<Invader> invaders) {
         Random rand = new Random();
         if (missile.getState()) {
             for (int i = 0; i < invaders.size(); i++) {
                 if (this.isCollision(invaders.get(i), missile)) {
-                    this.setPoints(this.points + 10);
+                    //this.setPoints(this.points + 10);
+                    this.point.add(10);
+                    
                     missile.setState(false);
                     missile.setX(195);
                     missile.setY(350);
@@ -137,7 +148,8 @@ public class Game {
         this.makeInvaders(10);
         this.random = new Random();
         this.missile = new Missile();
-        this.points = 0;
+        //this.points = 0;
+        this.point = new Point();
         this.gameOn = false;
     }
 }
