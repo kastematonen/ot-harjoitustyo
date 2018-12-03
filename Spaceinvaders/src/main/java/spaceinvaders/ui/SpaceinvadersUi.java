@@ -26,6 +26,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
 import java.util.ArrayList;
+import java.sql.*;
 
 //tarvitaanko kaikkia näitä
 import spaceinvaders.domain.Direction;
@@ -94,7 +95,6 @@ public class SpaceinvadersUi extends Application{
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
         Game game = new Game();
-        
         
         //pelinäkymä
         BorderPane gamePage = new BorderPane();

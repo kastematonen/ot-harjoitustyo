@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.lang.Math;
 
+import spaceinvaders.database.*;
+import spaceinvaders.dao.*;
+
 public class Game {
     
     private boolean gameOver;
@@ -22,6 +25,8 @@ public class Game {
     private Missile missile;
     //private int points;
     private Point point;
+    
+    //private Database db;
     
     private boolean gameOn;
     
@@ -34,8 +39,8 @@ public class Game {
         this.missile = new Missile();
         //this.points = 0;
         this.gameOn = false;
-        
         this.point = new Point();
+        //this.db = new Database("jdbc:sqlite:database.db");
     }
     
     public boolean getGameOver() {

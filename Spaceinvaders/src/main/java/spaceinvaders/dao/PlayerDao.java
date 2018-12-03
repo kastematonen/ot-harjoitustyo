@@ -15,7 +15,7 @@ import spaceinvaders.domain.*;
 import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
 
-public class PlayerDao implements Dao<Player, Integer>{
+public class PlayerDao implements Dao<Player, Integer> {
     private Database database;
     
     public PlayerDao(Database database) {

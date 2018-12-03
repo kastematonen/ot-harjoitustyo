@@ -18,9 +18,9 @@ import spaceinvaders.domain.Point;
 import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
 
-public class PointDao implements Dao<Point, Integer>{
+public class PointDao implements Dao<Point, Integer> {
     private Database database;
-    private Dao<Player, Integer> playerDao;;
+    private Dao<Player, Integer> playerDao;
     
     public PointDao(Database database, Dao<Player, Integer> playerDao) {
         this.database = database;

@@ -19,29 +19,29 @@ public class Point {
         this.id = -1;
     }
     
-    public int getPoints(){
+    public int getPoints() {
         return this.points;
     }
     
-    public void setPoints(int points){
+    public void setPoints(int points) {
         this.points = points;
     }
     
-    public void add(int points){
+    public void add(int points) {
         this.points += points;
     }
-    public Player getPlayer(){
+    public Player getPlayer() {
         return this.getPlayer();
     }
     
-    public void setPlayer(Player player){
+    public void setPlayer(Player player) {
         this.player = player;
     }
-    public int getId(){
+    public int getId() {
         return this.id;
     }
     
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 }

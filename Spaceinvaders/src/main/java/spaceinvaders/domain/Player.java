@@ -56,10 +56,10 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-    public int getId(){
+    public int getId() {
         return this.id;
     }
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
     public void move() {
