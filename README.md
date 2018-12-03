@@ -18,9 +18,11 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 
 ### Testaus
 
-Testit komennolla mvn test
+Testit komennolla 
+    mvn test
 
-Testikattavuusraportti komennolla mvn jacoco:report
+Testikattavuusraportti komennolla 
+    mvn jacoco:report
 
 Kattavuusraportin tulos avautuu selaimeen tiedostosta target/site/jacoco/index.html
 
@@ -30,3 +32,10 @@ Tiedoston [checkstyle.xml](https://github.com/kastematonen/ot-harjoitustyo/blob/
 tarkistukset komennolla mvn jxr:jxr checkstyle:checkstyle
 
 Virheilmoitukset avautuvat selaimella tiedostosta target/site/checkstyle.html
+
+### Jarin generointi
+
+Komennolla
+    mvn package
+    
+saadaan jar-tiedosto Spaceinvaders-1.0-SNAPSHOT.jar
