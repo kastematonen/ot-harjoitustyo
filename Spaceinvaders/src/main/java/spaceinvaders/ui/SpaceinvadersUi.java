@@ -95,6 +95,7 @@ public class SpaceinvadersUi extends Application{
         
         Game game = new Game();
         
+        
         //pelinäkymä
         BorderPane gamePage = new BorderPane();
         Label points = new Label("pisteet: " + game.getGPoints());
