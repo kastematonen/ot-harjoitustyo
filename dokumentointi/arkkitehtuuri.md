@@ -9,7 +9,7 @@ Luokkakaavio:
 
 Sekvenssikaavio, kun käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään.
 
-![Sekvenssikaavio_pelin_aloitus]()
+![Sekvenssikaavio_pelin_aloitus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/sekvenssikaavio.jpg)
 
 ## Tietojen pysyväistallennus
 ## Ohjelman rakenteeseen jääneet heikkoudet
