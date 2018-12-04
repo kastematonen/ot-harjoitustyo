@@ -12,7 +12,7 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 [Arkkitehtuurikuvaus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
 ## Releaset
-
+[Viikko 5](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
