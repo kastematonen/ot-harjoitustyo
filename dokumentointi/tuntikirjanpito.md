@@ -11,4 +11,5 @@ päivä | aika | mitä tein
 26.11. | 3 | peli loputtua aloitusnäkymään, josta voi aloittaa uuden pelin; checkstyle käyttöön ja koodin siistimistä; luokkakaavion lisääminen; readme:n päivitys
 27.11. | 3 | nimet englanniksi, pluginin lisäys
 3.12. | 4 | pistenäkymä ja loppunäkymä, tietokannan lisäämisen kanssa säätämistä
-yht | 20,5 | 
+4.12. | 2 | pistenäkymä näyttää yhden käynnistyskerran pisteet oikein, lisää testejä, sekvenssikaavio
+yht | 22,5 | 
