@@ -99,12 +99,8 @@ public class SpaceinvadersUi extends Application{
         
 //        VBox pointTable = new VBox();
 //        pointTable.setSpacing(5);
-//        for(int i=0;i<game.getTopPoints().size();i++){
-//            String text = game.getTopPoints().get(i).toString();
-//            pointTable.getChildren().add(new Label(text));
-//        }
 //        pointsPage.setCenter(pointTable);
-//        
+
         pointsPage.setPrefSize(400, 400);
         pointsPage.setPadding(new Insets(20, 20, 20, 20));
         Scene pointsScene = new Scene(pointsPage);
@@ -258,7 +254,6 @@ public class SpaceinvadersUi extends Application{
             while(iterator.hasNext()) {
                Map.Entry mentry = (Map.Entry)iterator.next();
                pointTable.getChildren().add(new Label(mentry.getKey() + "\t" + mentry.getValue()));
-               //System.out.println(mentry.getKey() + "\t" + mentry.getValue());
             }
             pointsPage.setCenter(pointTable);
             game.newGame();

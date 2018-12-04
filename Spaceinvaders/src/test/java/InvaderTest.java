@@ -56,4 +56,70 @@ public class InvaderTest {
         invader.setX(30);
         assertEquals(30, invader.getX());
     }
+    @Test
+    public void setYWorks(){
+        invader.setY(20);
+        assertEquals(20, invader.getY());
+    }
+    @Test
+    public void setDirectionWorks(){
+        invader.setDirection(Direction.LEFT);
+        assertEquals(Direction.LEFT, invader.getDirection());
+    }
+    @Test
+    public void movingRight(){
+        invader.setX(250);
+        invader.setDirection(Direction.RIGHT);
+        invader.move();
+        assertEquals(260, invader.getX());
+    }
+    @Test
+    public void movingRightNotOverEdge(){
+        invader.setX(355);
+        invader.setDirection(Direction.RIGHT);
+        invader.move();
+        assertEquals(360, invader.getX());
+    }
+    @Test
+    public void movingRightChangeDirection(){
+        invader.setX(355);
+        invader.setDirection(Direction.RIGHT);
+        invader.move();
+        assertEquals(Direction.LEFT, invader.getDirection());
+    }
+    @Test
+    public void movingRightChangeY(){
+        invader.setX(355);
+        invader.setDirection(Direction.RIGHT);
+        invader.move();
+        assertEquals(45, invader.getY());
+    }
+    @Test
+    public void movingLeft(){
+        invader.setX(250);
+        invader.setDirection(Direction.LEFT);
+        invader.move();
+        assertEquals(240, invader.getX());
+    }
+    @Test
+    public void movingLefttNotOverEdge(){
+        invader.setX(25);
+        invader.setDirection(Direction.LEFT);
+        invader.move();
+        assertEquals(20, invader.getX());
+    }
+    @Test
+    public void movingLeftChangeDirection(){
+        invader.setX(25);
+        invader.setDirection(Direction.LEFT);
+        invader.move();
+        assertEquals(Direction.RIGHT, invader.getDirection());
+    }
+    @Test
+    public void movingLeftChangeY(){
+        invader.setX(25);
+        invader.setDirection(Direction.LEFT);
+        invader.move();
+        assertEquals(45, invader.getY());
+    }
 }

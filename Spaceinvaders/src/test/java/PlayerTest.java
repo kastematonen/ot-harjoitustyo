@@ -75,6 +75,16 @@ public class PlayerTest {
         assertEquals(20, player.getX());
     }
     @Test
+    public void setIdWorks(){
+        player.setId(3);
+        assertEquals(3, player.getId());
+    }
+    @Test
+    public void setNameWorks(){
+        player.setName("name");
+        assertEquals("name", player.getName());
+    }
+    @Test
     public void setYWorks(){
         player.setY(20);
         assertEquals(20, player.getY());
