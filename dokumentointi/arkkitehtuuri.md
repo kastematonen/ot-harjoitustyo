@@ -7,6 +7,10 @@ Luokkakaavio:
 
 ![Luokkakaavio](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/luokkakaavio2.jpg)
 
+Sekvenssikaavio, kun käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään.
+
+![Sekvenssikaavio_pelin_aloitus]()
+
 ## Tietojen pysyväistallennus
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
