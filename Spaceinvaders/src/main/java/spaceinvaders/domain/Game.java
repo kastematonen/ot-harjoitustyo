@@ -17,6 +17,8 @@ import java.util.Collections;
 import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
 
+import java.util.*;
+
 public class Game {
     
     private boolean gameOver;
@@ -24,12 +26,11 @@ public class Game {
     private ArrayList<Invader> invaders;
     private Random random;
     private Missile missile;
-    //private int points;
-    private Point point;
+    private int points;
     
     //private Database db;
     
-    private ArrayList<Point> topPoints;
+    private TreeMap<Integer, String> topPoints;
     
     private boolean gameOn;
     
@@ -40,13 +41,12 @@ public class Game {
         this.makeInvaders(10);
         this.random = new Random();
         this.missile = new Missile();
-        //this.points = 0;
+        this.points = 0;
         this.gameOn = false;
-        this.point = new Point();
         //miksi tämä antaa erroria, sanoo ettei database-tiedostoa löydy
         //this.db = new Database("jdbc:sqlite:database.db");
         
-        this.topPoints = new ArrayList<>();
+        this.topPoints = new TreeMap<Integer, String>(Collections.reverseOrder());
     }
     
     public boolean getGameOver() {
@@ -67,10 +67,10 @@ public class Game {
     public void setInvaders(ArrayList invaders) {
         this.invaders = invaders;
     }
-    public ArrayList getTopPoints() {
+    public TreeMap<Integer, String> getTopPoints() {
         return this.topPoints;
     }
-    public void setTopPoints(ArrayList topPoints) {
+    public void setTopPoints(TreeMap<Integer, String> topPoints) {
         this.topPoints = topPoints;
     }
     public void makeInvaders(int howMany) {
@@ -119,33 +119,20 @@ public class Game {
             return false;
         }
     }
-//    public int getGPoints() {
-//        return this.points;
-//    }
-//    public void setPoints(int points) {
-//        this.points = points;
-//    }
     public int getPoints() {
-        return this.point.getPoints();
+        return this.points;
     }
     public void setPoints(int points) {
-        this.point.setPoints(points);
+        this.points = points;
     }
-    public Point getPoint() {
-        return this.point;
-    }
-    public void setPoint(Point points) {
-        this.point = points;
-    }
-    
     public void handleCollision(Missile missile, ArrayList<Invader> invaders) {
         Random rand = new Random();
         if (missile.getState()) {
             for (int i = 0; i < invaders.size(); i++) {
                 if (this.isCollision(invaders.get(i), missile)) {
                     
-                    //this.setPoints(this.points + 10);
-                    this.point.add(10);
+                    this.setPoints(this.points + 10);
+                    //this.point.add(10);
                     
                     missile.setState(false);
                     missile.setX(195);
@@ -172,20 +159,19 @@ public class Game {
         this.makeInvaders(10);
         this.random = new Random();
         this.missile = new Missile();
-        //this.points = 0;
-        this.point = new Point();
+        this.points = 0;
         this.gameOn = false;
     }
-    public void addPointsToList(Point point) {
-        this.topPoints.add(point);
-        Collections.sort(topPoints);
-        
-        if (this.topPoints.size() > 10) {
-            this.topPoints.remove(this.topPoints.size() - 1);
+    public void addPointsToList(int points, String name) {
+        if (this.topPoints.size() > 9) {
+            int lastKey = this.topPoints.lastKey();
+            if (points > lastKey) {
+                this.topPoints.remove(lastKey);
+                this.topPoints.put(points, name);
+            }
+        } else {
+            this.topPoints.put(points, name);
         }
-    }
-    public void sortTopPoints() {
-        Collections.sort(topPoints);
     }
     
 }

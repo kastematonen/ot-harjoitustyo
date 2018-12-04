@@ -249,35 +249,18 @@ public class SpaceinvadersUi extends Application{
             String[] pieces = endPoints.getText().split(" ");
             int pointsToSave = Integer.parseInt(pieces[1]);
             String nameToSave = playerName.getText();
-            //toimii
-            //System.out.println(pointsToSave + " " + nameToSave);
-            game.getPlayer().setName(nameToSave);
-            game.getPoint().setPoints(pointsToSave);
-            game.getPoint().setPlayer(game.getPlayer());
-            game.addPointsToList(game.getPoint());
+            game.addPointsToList(pointsToSave, nameToSave);
             
             VBox pointTable = new VBox();
             pointTable.setSpacing(5);
-            
-            if(game.getTopPoints().size() != 0) {
-                //järjestäminen ei toimi?
-                //game.sortTopPoints();
-                List<Point> uusi = game.getTopPoints();
-                List<Point> uusi2 = new ArrayList<>();
-                uusi.stream().sorted().forEach(k -> uusi2.add(k));
-                uusi2.stream().forEach(k -> System.out.println(k));
-                
-                //ArrayList<Point> uusi = game.getTopPoints().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
-                
-                for(int i=0;i<game.getTopPoints().size();i++){
-                    System.out.println(game.getTopPoints().get(i).toString());
-                }
-                for(int i=0;i<game.getTopPoints().size();i++){
-                    String text = game.getTopPoints().get(i).toString();
-                    pointTable.getChildren().add(new Label(text));
-                }
-                pointsPage.setCenter(pointTable);
+            Set set = game.getTopPoints().entrySet();
+            Iterator iterator = set.iterator();
+            while(iterator.hasNext()) {
+               Map.Entry mentry = (Map.Entry)iterator.next();
+               pointTable.getChildren().add(new Label(mentry.getKey() + "\t" + mentry.getValue()));
+               //System.out.println(mentry.getKey() + "\t" + mentry.getValue());
             }
+            pointsPage.setCenter(pointTable);
             game.newGame();
             ikkuna.setScene(beginningPage);
             
