@@ -132,7 +132,6 @@ public class Game {
                 if (this.isCollision(invaders.get(i), missile)) {
                     
                     this.setPoints(this.points + 10);
-                    //this.point.add(10);
                     
                     missile.setState(false);
                     missile.setX(195);
@@ -163,6 +162,23 @@ public class Game {
         this.gameOn = false;
     }
     public void addPointsToList(int points, String name) {
+//        if (this.topPoints.size() > 9) {
+//            
+//            int lastKey = this.topPoints.lastKey();
+//            String lastvalue = this.topPoints.get(lastKey);
+//            String[] splitted = lastvalue.split("\t");
+//            int lastPoints = Integer.parseInt(splitted[0]);
+//            if (points > lastPoints) {
+//                this.topPoints.remove(lastKey);
+//                
+//                String pointsToSave = Integer.toString(points) + "\t" + name;
+//                this.topPoints.put(this.topPoints.size(), pointsToSave);
+//            }
+//        } else {
+//            String pointsToSave = Integer.toString(points) + "\t" + name;
+//            this.topPoints.put(this.topPoints.size(), pointsToSave);
+//        }
+        
         if (this.topPoints.size() > 9) {
             int lastKey = this.topPoints.lastKey();
             if (points > lastKey) {
