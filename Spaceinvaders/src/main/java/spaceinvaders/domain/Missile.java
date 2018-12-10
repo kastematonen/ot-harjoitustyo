@@ -10,6 +10,9 @@ package spaceinvaders.domain;
  * @author julia
  */
 
+/**
+ * Luokka kuvaa pelin pelaajan ammusta.
+ */
 public class Missile {
     private int x;
     private int y;

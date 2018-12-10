@@ -9,6 +9,8 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.lang.Math;
@@ -18,7 +20,9 @@ import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
 
 import java.util.*;
-
+/**
+ * Luokka vastaa pelin logiikasta kuten pelin elementeistä ja niiden päivityksestä.
+ */
 public class Game {
     
     private boolean gameOver;

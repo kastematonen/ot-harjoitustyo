@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+/**
+ * Luokka kuvaa pelin yhtä vastustajaa.
+ */
 public class Invader {
     private int x;
     private int y;

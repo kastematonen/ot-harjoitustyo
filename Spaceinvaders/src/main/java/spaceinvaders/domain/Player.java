@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+/**
+ * Luokka kuvaa pelin pelaajan hahmoa.
+ */
 public class Player {
     private int id;
     private int x;

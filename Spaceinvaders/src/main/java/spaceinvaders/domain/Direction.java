@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+/**
+ * Luokka kuvaa pelin hahmojen suuntavaiston mahdollisia arvoja.
+ */
 public enum Direction {
     RIGHT, LEFT, STILL, UP
 }
