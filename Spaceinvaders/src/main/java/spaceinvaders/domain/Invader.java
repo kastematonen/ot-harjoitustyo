@@ -33,7 +33,6 @@ public class Invader {
     public int getY() {
         return this.y;
     }
-    //tarvitaanko tätä
     public void setY(int y) {
         this.y = y;
     }
@@ -43,6 +42,10 @@ public class Invader {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+    /**
+    * Vastustaja liikkuu siihen suuntaan, johon se osoittaa ja osuessaan reunaan 
+    * se vaihtaa suuntaa ja liikkuu pykälän alaspäin.
+    */
     public void move() {
         int newX = this.x;
         if (this.direction == Direction.RIGHT) {

@@ -58,6 +58,10 @@ public class Missile {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+    /**
+    * Jos ammus on laukaistu, liikkuu se vakionopeudella ylöspäin, kunnes
+    * se osuu yläreunaan - tällöin se palaa takaisin valmiuteen alkuasemaansa.
+    */
     public void move() {
         if (!this.state) {
             return;

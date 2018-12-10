@@ -65,6 +65,10 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
+    /**
+    * Metodi liikuttaa pelaajaa pelaajan suunnan mukaisesti niin, että pelaaja
+    * ei kuitenkaan liiku yli pelialueen.
+    */
     public void move() {
         int newX = this.x;
         
