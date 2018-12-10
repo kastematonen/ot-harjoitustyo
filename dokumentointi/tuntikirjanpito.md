@@ -12,4 +12,5 @@ päivä | aika | mitä tein
 27.11. | 3 | nimet englanniksi, pluginin lisäys
 3.12. | 4 | pistenäkymä ja loppunäkymä, tietokannan lisäämisen kanssa säätämistä
 4.12. | 2 | pistenäkymä näyttää yhden käynnistyskerran pisteet oikein, lisää testejä, sekvenssikaavio
-yht | 22,5 | 
+10.12. | 2 | lisää testejä
+yht | 24,5 | 
