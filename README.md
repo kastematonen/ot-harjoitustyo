@@ -44,3 +44,11 @@ Komennolla
     mvn package
     
 saadaan jar-tiedosto Spaceinvaders-1.0-SNAPSHOT.jar
+
+### JavaDoc:n generointi
+
+Komennolla
+
+    mvn javadoc:javadoc
+    
+Luotu JavaDoc löytyy tällöin hakemistosta target/site/apidocs/
