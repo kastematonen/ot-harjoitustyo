@@ -84,7 +84,7 @@ public class SpaceinvadersUi extends Application{
         Canvas canvas = new Canvas(400,380);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
-        String fileName = "pisteet";
+        String fileName = "points";
         FilePointDao pointDao = null;
         try {
             pointDao = new FilePointDao(fileName);
@@ -96,7 +96,7 @@ public class SpaceinvadersUi extends Application{
         //Game game = new Game();
         
         //pistenäkymä
-        Label pointsHeader = new Label("Parhaat pisteet:");
+        Label pointsHeader = new Label("Viimeisimmät pisteet:");
         Button pointsToBeginning = new Button("Etusivulle");
         BorderPane pointsPage = new BorderPane();
         pointsPage.setTop(pointsHeader);

@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 
 import spaceinvaders.domain.*;
+import spaceinvaders.dao.*;
 import java.util.*;
 /**
  *
@@ -20,6 +21,7 @@ import java.util.*;
  */
 public class GameTest {
     Game game;
+    FilePointDao pointDao;
     
     public GameTest() {
     }
@@ -34,7 +36,15 @@ public class GameTest {
     
     @Before
     public void setUp() {
-        game = new Game();
+        pointDao = null;
+        try {
+            pointDao = new FilePointDao("testPointFile");
+            System.out.println("daon luonti toimi");
+            pointDao.clearFile();
+        } catch (Exception e) {
+            System.out.println("ei toiminut daon luonti");
+        }
+        game = new Game(pointDao);
     }
     
     @After
@@ -150,31 +160,23 @@ public class GameTest {
         game.isGameOver(game.getInvaders());
         assertEquals(true, game.getGameOver());
     }
+
     @Test
-    public void addPointsToListListEmpty(){
-        game.addPointsToList(40, "player1");
-        assertEquals(1, game.getTopPoints().size());
-    }
-    @Test
-    public void addPointsToListListFullNotToList(){
-        //System.out.println("ei listalle");
-        for(int i=0;i<10;i++) {
-            game.addPointsToList(i+10, "player1");
-            //System.out.println(game.getTopPoints().toString());
+    public void addPointsToListListWorks(){
+        try {
+            pointDao.clearFile();
+        } catch (Exception e) {
+            System.out.println("ei toiminut tiedoston tyhjennys");
         }
-        game.addPointsToList(5, "player2");
+        game.addPointsToList(5, "testPlayer");
+        List<Point> allPoints = game.getAllPoints();
+        System.out.println(allPoints.toString());
+        Point first = allPoints.get(0);
         
-//        int lastKey = game.getTopPoints().lastKey();
-//        String lastvalue = game.getTopPoints().get(lastKey);
-//        String[] splitted = lastvalue.split("\t");
-//        int lastPoints = Integer.parseInt(splitted[0]);
-        
-        int lastKey = game.getTopPoints().lastKey();
-        
-        assertEquals(10, lastKey);
+        assertEquals("testPlayer", first.getPlayer());
     }
-    @Test
-    public void addPointsToListListFullToList(){
+//    @Test
+//    public void addPointsToListListFullToList(){
 //        System.out.println("listalle");
 //        for(int i=0;i<10;i++) {
 //            game.addPointsToList(40, "player1");
@@ -190,16 +192,16 @@ public class GameTest {
 //        
 //        assertEquals(60, lastPoints);
         //System.out.println("listalle");
-        for(int i=0;i<10;i++) {
-            game.addPointsToList(i+10, "player1");
-            //System.out.println(game.getTopPoints().toString());
-        }
-        game.addPointsToList(30, "player2");
-        //System.out.println(game.getTopPoints().toString());
-        int firstKey = game.getTopPoints().firstKey();
-        
-        assertEquals(30, firstKey);
-    }
+//        for(int i=0;i<10;i++) {
+//            game.addPointsToList(i+10, "player1");
+//            //System.out.println(game.getTopPoints().toString());
+//        }
+//        game.addPointsToList(30, "player2");
+//        //System.out.println(game.getTopPoints().toString());
+//        int firstKey = game.getTopPoints().firstKey();
+//        
+//        assertEquals(30, firstKey);
+//    }
     @Test
     public void isCollisionTrueWhenIsCollision(){
         game.getMissile().setX(50);

@@ -60,5 +60,11 @@ public class FilePointDao implements Dao {
         //System.out.println("listalle onnistui");
         save();
         return point;
-    } 
+    }
+    public void clearFile() throws Exception {
+        try (FileWriter writer = new FileWriter(new File(file))) {
+            writer.write("");
+            System.out.println("tiedosto tyhjennetty");
+        } 
+    }
 }

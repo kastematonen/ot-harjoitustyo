@@ -234,8 +234,8 @@ public class Game {
     }
     public List<Point> getLast10Points() {
         List<Point> allPoints = this.pointDao.getAll();
-        if(allPoints.size() >= 10) {
-            List<Point> last10Points = allPoints.subList(allPoints.size()-10, allPoints.size());
+        if (allPoints.size() >= 10) {
+            List<Point> last10Points = allPoints.subList(allPoints.size() - 10, allPoints.size());
             //Collections.reverse(last10Points);
             return last10Points;
         } else {
@@ -243,5 +243,8 @@ public class Game {
             //Collections.reverse(last10Points);
             return last10Points;
         }
+    }
+    public List<Point> getAllPoints() {
+        return this.pointDao.getAll();
     }
 }
