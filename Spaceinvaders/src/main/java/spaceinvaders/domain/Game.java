@@ -204,7 +204,7 @@ public class Game {
         this.gameOn = false;
     }
     /**
-    * Jos pisteet tallennetaan tiedostoon metodin avulla. 
+    * Pisteet tallennetaan tiedostoon metodin avulla. 
     * 
     * @param   points   pisteet
     * 

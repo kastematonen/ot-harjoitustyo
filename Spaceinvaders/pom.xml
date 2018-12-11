@@ -52,8 +52,6 @@
                 <configuration>
                     <excludes>
                         <exclude>spaceinvaders/ui/*</exclude>
-                        <exclude>spaceinvaders/dao/*</exclude>
-                        <exclude>spaceinvaders/database/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
