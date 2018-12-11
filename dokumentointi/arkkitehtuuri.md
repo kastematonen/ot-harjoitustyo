@@ -46,9 +46,9 @@ Sekvenssikaavio kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nap
 
 ## Tietojen pysyväistallennus
 
-
+Pelissä tallennetaan pelin loputtua pisteet ja pelaajan nimimerkki tiedostoon dao-pakkauksen FilePointDao-luokan toimesta. Sama tiedosto luetaan, kun pelin pistenäkymään asetetaan tallennettuja pisteitä.
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
 - Käyttöliittymäluokan start-metodi tosi pitkä -> näkymien koodien eriyttäminen omaan luokkaan tms?
-- pelin pisteiden tallennus ei toimi täysin kunnolla: jos pelaaja saa jo pistelistassa olevat pisteet, tallennetaan pelaajan pisteet ensimmäisten pisteiden päälle
+- (pelin pisteiden tallennus ei toimi täysin kunnolla: jos pelaaja saa jo pistelistassa olevat pisteet, tallennetaan pelaajan pisteet ensimmäisten pisteiden päälle) tällä hetkellä näyttää 10 viimeisimmän pelikerran tulokset
