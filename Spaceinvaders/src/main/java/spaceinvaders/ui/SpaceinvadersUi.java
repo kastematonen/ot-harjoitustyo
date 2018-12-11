@@ -30,11 +30,8 @@ import java.sql.*;
 import java.util.stream.Collectors;
 
 //tarvitaanko kaikkia näitä
-import spaceinvaders.domain.Direction;
-import spaceinvaders.domain.Game;
-import spaceinvaders.domain.Invader;
-import spaceinvaders.domain.Player;
-import spaceinvaders.domain.Point;
+import spaceinvaders.domain.*;
+import spaceinvaders.dao.*;
 
 public class SpaceinvadersUi extends Application{
     @Override
@@ -87,7 +84,16 @@ public class SpaceinvadersUi extends Application{
         Canvas canvas = new Canvas(400,380);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
-        Game game = new Game();
+        String fileName = "pisteet";
+        FilePointDao pointDao = null;
+        try {
+            pointDao = new FilePointDao(fileName);
+            System.out.println("daon luonti toimi");
+        } catch (Exception e) {
+            System.out.println("ei toiminut daon luonti");
+        }
+        Game game = new Game(pointDao);
+        //Game game = new Game();
         
         //pistenäkymä
         Label pointsHeader = new Label("Parhaat pisteet:");
@@ -95,11 +101,17 @@ public class SpaceinvadersUi extends Application{
         BorderPane pointsPage = new BorderPane();
         pointsPage.setTop(pointsHeader);
         pointsPage.setBottom(pointsToBeginning);
+        VBox pointTable = new VBox();
+        pointTable.setSpacing(5);
         
-        
-//        VBox pointTable = new VBox();
-//        pointTable.setSpacing(5);
-//        pointsPage.setCenter(pointTable);
+        List<Point> pointsSaved = game.getLast10Points();
+        if(pointsSaved.size() != 0) {
+            for(int i = 0; i < pointsSaved.size();i ++) {
+                pointTable.getChildren().add(new Label(pointsSaved.get(i).getPoints() + "\t" + pointsSaved.get(i).getPlayer()));
+            }
+        }
+            
+        pointsPage.setCenter(pointTable);
 
         pointsPage.setPrefSize(400, 400);
         pointsPage.setPadding(new Insets(20, 20, 20, 20));
@@ -238,24 +250,31 @@ public class SpaceinvadersUi extends Application{
         });
         
         savePoints.setOnAction((event) -> {
-            //tänne jotain, tyyliin:
-            //Henkilo lisattava = new Henkilo(nimiTeksti.getText(), hetuTeksti.getText());
-            //henkilovarasto.talleta(new Henkilo(lisattava);
             
             String[] pieces = endPoints.getText().split(" ");
             int pointsToSave = Integer.parseInt(pieces[1]);
             String nameToSave = playerName.getText();
             game.addPointsToList(pointsToSave, nameToSave);
             
-            VBox pointTable = new VBox();
-            pointTable.setSpacing(5);
-            Set set = game.getTopPoints().entrySet();
-            Iterator iterator = set.iterator();
-            while(iterator.hasNext()) {
-               Map.Entry mentry = (Map.Entry)iterator.next();
-               pointTable.getChildren().add(new Label(mentry.getKey() + "\t" + mentry.getValue()));
+//            VBox pointTable = new VBox();
+//            pointTable.setSpacing(5);
+
+
+//            Set set = game.getTopPoints().entrySet();
+//            Iterator iterator = set.iterator();
+//            while(iterator.hasNext()) {
+//               Map.Entry mentry = (Map.Entry)iterator.next();
+//               pointTable.getChildren().add(new Label(mentry.getKey() + "\t" + mentry.getValue()));
+//            }
+            
+            pointTable.getChildren().clear();
+            List<Point> lastPoints = game.getLast10Points();
+            for(int i = 0; i < lastPoints.size();i ++) {
+                pointTable.getChildren().add(new Label(lastPoints.get(i).getPoints() + "\t" + lastPoints.get(i).getPlayer()));
             }
-            pointsPage.setCenter(pointTable);
+
+            //pointsPage.setCenter(pointTable);
+            
             game.newGame();
             ikkuna.setScene(beginningPage);
             

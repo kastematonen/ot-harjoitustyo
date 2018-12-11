@@ -31,14 +31,14 @@ public class Game {
     private Random random;
     private Missile missile;
     private int points;
+    private FilePointDao pointDao;
     
-    //private Database db;
     
     private TreeMap<Integer, String> topPoints;
     
     private boolean gameOn;
     
-    public Game() {
+    public Game(FilePointDao pointDao) {
         this.gameOver = false;
         this.player = new Player();
         this.invaders = new ArrayList<>();
@@ -47,10 +47,9 @@ public class Game {
         this.missile = new Missile();
         this.points = 0;
         this.gameOn = false;
-        //miksi tämä antaa erroria, sanoo ettei database-tiedostoa löydy
-        //this.db = new Database("jdbc:sqlite:database.db");
         
         this.topPoints = new TreeMap<Integer, String>(Collections.reverseOrder());
+        this.pointDao = pointDao;
     }
     
     public boolean getGameOver() {
@@ -215,31 +214,34 @@ public class Game {
     */
     public void addPointsToList(int points, String name) {
 //        if (this.topPoints.size() > 9) {
-//            
 //            int lastKey = this.topPoints.lastKey();
-//            String lastvalue = this.topPoints.get(lastKey);
-//            String[] splitted = lastvalue.split("\t");
-//            int lastPoints = Integer.parseInt(splitted[0]);
-//            if (points > lastPoints) {
+//            if (points > lastKey) {
 //                this.topPoints.remove(lastKey);
-//                
-//                String pointsToSave = Integer.toString(points) + "\t" + name;
-//                this.topPoints.put(this.topPoints.size(), pointsToSave);
+//                this.topPoints.put(points, name);
 //            }
 //        } else {
-//            String pointsToSave = Integer.toString(points) + "\t" + name;
-//            this.topPoints.put(this.topPoints.size(), pointsToSave);
+//            this.topPoints.put(points, name);
 //        }
+
+        Point pointsToSave = new Point(points, name);
         
-        if (this.topPoints.size() > 9) {
-            int lastKey = this.topPoints.lastKey();
-            if (points > lastKey) {
-                this.topPoints.remove(lastKey);
-                this.topPoints.put(points, name);
-            }
-        } else {
-            this.topPoints.put(points, name);
+        try {
+            this.pointDao.create(pointsToSave);
+            System.out.println("toimi pisteiden tallennus");
+        } catch (Exception e) {
+            System.out.println("ei toiminut pisteiden tallennus");
         }
     }
-    
+    public List<Point> getLast10Points() {
+        List<Point> allPoints = this.pointDao.getAll();
+        if(allPoints.size() >= 10) {
+            List<Point> last10Points = allPoints.subList(allPoints.size()-10, allPoints.size());
+            //Collections.reverse(last10Points);
+            return last10Points;
+        } else {
+            List<Point> last10Points = allPoints;
+            //Collections.reverse(last10Points);
+            return last10Points;
+        }
+    }
 }

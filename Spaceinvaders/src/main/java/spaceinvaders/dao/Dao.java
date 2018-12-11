@@ -11,10 +11,9 @@ package spaceinvaders.dao;
  */
 import java.sql.*;
 import java.util.*;
+import spaceinvaders.domain.*;
 
-public interface Dao<T, K> {
-    T findOne(K key) throws SQLException;
-    List<T> findAll() throws SQLException;
-    T save(T object) throws SQLException;
-    //void delete(K key) throws SQLException;
+public interface Dao {
+    Point create(Point point) throws Exception;
+    List<Point> getAll();
 }

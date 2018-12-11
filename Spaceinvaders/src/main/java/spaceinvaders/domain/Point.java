@@ -10,13 +10,13 @@ package spaceinvaders.domain;
  * @author julia
  */
 public class Point implements Comparable<Point> {
-    Integer id;
+    //Integer id;
     private int points;
-    private Player player;
+    private String player;
     
-    public Point() {
-        this.points = 0;
-        this.id = -1;
+    public Point(int points, String player) {
+        this.points = points;
+        this.player = player;
     }
     
     public int getPoints() {
@@ -27,23 +27,23 @@ public class Point implements Comparable<Point> {
         this.points = points;
     }
     
-    public void add(int points) {
-        this.points += points;
-    }
-    public Player getPlayer() {
-        return this.getPlayer();
+//    public void add(int points) {
+//        this.points += points;
+//    }
+    public String getPlayer() {
+        return this.player;
     }
     
-    public void setPlayer(Player player) {
+    public void setPlayer(String player) {
         this.player = player;
     }
-    public int getId() {
-        return this.id;
-    }
-    
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return this.id;
+//    }
+//    
+//    public void setId(int id) {
+//        this.id = id;
+//    }
     
     @Override
     public int compareTo(Point point) {
@@ -52,6 +52,6 @@ public class Point implements Comparable<Point> {
     
     @Override
     public String toString() {
-        return this.points + "\t" + this.player.getName();
+        return this.points + "\t" + this.player;
     }
 }
