@@ -14,7 +14,7 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 [Käyttöohje](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
 ## Releaset
-[Viikko 5](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 6](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Komentorivitoiminnot
 
