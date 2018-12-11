@@ -16,7 +16,6 @@ import java.util.Random;
 import java.lang.Math;
 import java.util.Collections;
 
-import spaceinvaders.database.*;
 import spaceinvaders.dao.*;
 
 import java.util.*;
