@@ -10,6 +10,8 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
 * Aloitusnäkymä
   * voi siirtyä ohjesivulle
   * voi siityä peliin
+  * voi siirtyä pistesivulle
+  * voi sulkea sovelluksen
 * Peli
   * voi liikuttaa hahmoa oikealle ja vasemmalle nuolinäppäimistä
   * voi ampua X-näppäimestä
@@ -17,10 +19,11 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
   * jos osuu ammuksella vastustajaan, saa pisteitä
   * näkee pisteet
   * jos vastustaja ehtii maahan ennen kuin se on ammuttu, peli loppuu
-  * pelin loppuessa palataan aloitusnäkymään
   * voi keskeyttää pelin painamalla siihen tarkoitettua nappia joko hiirellä tai välilyönnillä
+  * pelin loppuessa siirrytään pistenäkymään
+  * pisteiden tallentaminen nimimerkillä pelin pistenäkymässä
+* Pistesivu
+  * näytetään viimeisimpien 10 pelin pisteet ja ne saavuttaneet nimimerkit
 
 ## Jatkokehitysideoita
-* pisteiden tallentaminen nimimerkillä pelin loppuessa
-* aloitussivulta siirtyminen pistesivulle
-* pistesivulla näytetään top 10 pisteet ja ne saavuttaneet nimimerkit
+* pisteiden tallentuminen verkkoon, jolloin pisteitä voisi vertailla myös kaverin pelien kanssa
