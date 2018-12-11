@@ -1,7 +1,17 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
+
+Ohjelman koodi on jaettu pakkauksiin seuraavasti:
+- spaceinvaders.ui sisältää Java FX:llä tehdyn käyttöliittymän.
+- spaceinvaders.domain vastaa sovelluslogiikasta ja siihen tarvittavista luokista
+- spaceinvaders.dao hoitaa tietojen tallennusta
+
 ## Käyttöliittymä
+
+Käyttöliittymässä on useampi näkymä:
+- 
+
 ## Sovelluslogiikka
 Luokkakaavio:
 
