@@ -5,11 +5,13 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 
 ## Dokumentaatio
 
-[Alustava määrittelydokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
+[Vaativuusmäärittely](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/vaativuusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
 
 [Arkkitehtuurikuvaus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
+
+[Käyttöohje](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
 ## Releaset
 [Viikko 5](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko5)
