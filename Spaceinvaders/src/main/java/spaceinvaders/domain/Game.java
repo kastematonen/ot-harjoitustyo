@@ -204,7 +204,7 @@ public class Game {
         this.gameOn = false;
     }
     /**
-    * Jos pisteet ovat tarpeeksi korkeat, ne tallennetaan huippupistelistalle. 
+    * Jos pisteet tallennetaan tiedostoon metodin avulla. 
     * 
     * @param   points   pisteet
     * 
@@ -231,6 +231,11 @@ public class Game {
             System.out.println("ei toiminut pisteiden tallennus");
         }
     }
+    /**
+    * Metodi palauttaa pistetiedoston 10 viimeisintä lisäystä tai kaikki lisäykset, 
+    * jos niitä on alle kymmenen.
+    * 
+    */
     public List<Point> getLast10Points() {
         List<Point> allPoints = this.pointDao.getAll();
         if (allPoints.size() >= 10) {
@@ -243,6 +248,10 @@ public class Game {
             return last10Points;
         }
     }
+    /**
+    * Metodi palauttaa kaikki pistetiedostoon tallennetut pisteet.
+    * 
+    */
     public List<Point> getAllPoints() {
         return this.pointDao.getAll();
     }
