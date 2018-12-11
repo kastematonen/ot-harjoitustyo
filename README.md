@@ -13,6 +13,8 @@ Pelin tavoitteena on estää valloittajia pääsemästä planeetalle ampumalle n
 
 [Käyttöohje](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/testausdokumentti.md)
+
 ## Releaset
 [Viikko 6](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko6)
 
