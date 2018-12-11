@@ -40,11 +40,14 @@ Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Ga
 - void newGame()
 - void addPointsToList(int points, String name)
 
-Sekvenssikaavio, kun käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään.
+Sekvenssikaavio kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään. Kaaviosta tulee hyvin ilmi se, että käyttöliittymän Game-luokan ilmentymä hoitaa yhteydet muihin domain-luokkiin. Käyttöliittymä ja sovelluslogiikka toimivat siis erillisissa luokissa ja pakkauksissa.
 
 ![Sekvenssikaavio_pelin_aloitus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/sekvenssikaavio.jpg)
 
 ## Tietojen pysyväistallennus
+
+
+
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
 - Käyttöliittymäluokan start-metodi tosi pitkä -> näkymien koodien eriyttäminen omaan luokkaan tms?
