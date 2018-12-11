@@ -13,5 +13,5 @@ päivä | aika | mitä tein
 3.12. | 4 | pistenäkymä ja loppunäkymä, tietokannan lisäämisen kanssa säätämistä
 4.12. | 2 | pistenäkymä näyttää yhden käynnistyskerran pisteet oikein, lisää testejä, sekvenssikaavio
 10.12. | 3 | lisää testejä, javadocia
-11.12. | 1 | käyttöohje ja arkkitehtuurikuvaus
-yht | 26,5 | 
+11.12. | 5 | käyttöohje ja arkkitehtuurikuvaus, tallennus tiedostoon, rakenteen siistimistä
+yht | 30,5 | 
