@@ -6,7 +6,7 @@ Sovelluksella on mahdollista peleta Space Invaders -tyylistä peliä, jossa tark
 ## Käyttäjät
 Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
 
-## Suunnitellut toiminnallisuudet
+## Toiminnallisuus
 * Aloitusnäkymä
   * voi siirtyä ohjesivulle
   * voi siityä peliin
@@ -24,6 +24,7 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
   * pisteiden tallentaminen nimimerkillä pelin pistenäkymässä
 * Pistesivu
   * näytetään viimeisimpien 10 pelin pisteet ja ne saavuttaneet nimimerkit
+  * näytetään kaikista parhaan tuloksen pisteet ja nimimerkki
 
 ## Jatkokehitysideoita
-* pisteiden tallentuminen verkkoon, jolloin pisteitä voisi vertailla myös kaverin pelien kanssa
+* pisteiden tallentuminen verkkoon, jolloin pisteitä voisi vertailla myös kaverin pelien kanssa samassa näkymässä
