@@ -22,7 +22,7 @@ Pelin ohjeita ja sääntöjä pääsee lukemaan, kun painaa aloitusnäkymässä 
 
 Ohjenäkymä näyttää seuraavalta:
 
-![ohjenäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/palin_ohjeet.png)
+![ohjenäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/pelin_ohjeet.png)
 
 Ohjeista pääsee takaisin aloitussivulle painamalla alanurkan nappia "Etusivulle".
 
