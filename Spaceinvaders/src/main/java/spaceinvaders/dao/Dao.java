@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.*;
 import spaceinvaders.domain.*;
 /**
- * Luokka tallentamisessa käytettävä rajapinta.
+ * Luokka on tallentamisessa käytettävä rajapinta.
  */
 public interface Dao {
     Point create(Point point) throws Exception;

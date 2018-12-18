@@ -29,7 +29,6 @@ import java.util.*;
 import java.sql.*;
 import java.util.stream.Collectors;
 
-//tarvitaanko kaikkia näitä
 import spaceinvaders.domain.*;
 import spaceinvaders.dao.*;
 
@@ -46,18 +45,18 @@ public class SpaceinvadersUi extends Application{
         Button beginningToGame = new Button("Peliin");
         Button beginningToPoints = new Button("Huippupisteet");
         Button exit = new Button("Lopeta");
-        BorderPane frontpage = new BorderPane();
-        frontpage.setCenter(welcomeText);
+        BorderPane frontPage = new BorderPane();
+        frontPage.setCenter(welcomeText);
         HBox frontpageMenu = new HBox();
         frontpageMenu.getChildren().add(beginningToDirections);
         frontpageMenu.getChildren().add(beginningToGame);
         frontpageMenu.getChildren().add(beginningToPoints);
         frontpageMenu.getChildren().add(exit);
         frontpageMenu.setSpacing(10);
-        frontpage.setBottom(frontpageMenu);
-        frontpage.setPrefSize(400, 400);
-        frontpage.setPadding(new Insets(20, 20, 20, 20));
-        Scene beginningPage= new Scene(frontpage);
+        frontPage.setBottom(frontpageMenu);
+        frontPage.setPrefSize(400, 400);
+        frontPage.setPadding(new Insets(20, 20, 20, 20));
+        Scene beginningPage= new Scene(frontPage);
         
         //ohjenakyma
         Label header = new Label("Space Invaders -pelin ohjeet");
@@ -146,7 +145,7 @@ public class SpaceinvadersUi extends Application{
         Scene gameview= new Scene(gamePage);
         
         //pelin loppunäkymä
-        BorderPane resultpage = new BorderPane();
+        BorderPane resultPage = new BorderPane();
         Label endPoints = new Label("pisteesi: " + game.getPoints());
         Button savePoints = new Button("Tallenna pisteet");
         TextField playerName = new TextField("Nimi");
@@ -155,10 +154,10 @@ public class SpaceinvadersUi extends Application{
         endTexts.getChildren().add(endPoints);
         endTexts.getChildren().add(playerName);
         endTexts.getChildren().add(savePoints);
-        resultpage.setCenter(endTexts);
-        resultpage.setPrefSize(400, 400);
-        resultpage.setPadding(new Insets(20, 20, 20, 20));
-        Scene resultview= new Scene(resultpage);
+        resultPage.setCenter(endTexts);
+        resultPage.setPrefSize(400, 400);
+        resultPage.setPadding(new Insets(20, 20, 20, 20));
+        Scene resultview= new Scene(resultPage);
         
         //piirtäminen
         new AnimationTimer(){
