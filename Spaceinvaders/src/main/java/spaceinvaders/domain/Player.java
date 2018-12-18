@@ -13,7 +13,6 @@ package spaceinvaders.domain;
  * Luokka kuvaa pelin pelaajan hahmoa.
  */
 public class Player {
-    private int id;
     private int x;
     private int y;
     private Direction direction;
@@ -26,7 +25,6 @@ public class Player {
         this.direction = Direction.STILL;
         this.speed = 10;
         this.name = "";
-        this.id = -1;
     }
     
     public int getX() {
@@ -59,12 +57,7 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-    public int getId() {
-        return this.id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+    
     /**
     * Metodi liikuttaa pelaajaa pelaajan suunnan mukaisesti niin, että pelaaja
     * ei kuitenkaan liiku yli pelialueen.

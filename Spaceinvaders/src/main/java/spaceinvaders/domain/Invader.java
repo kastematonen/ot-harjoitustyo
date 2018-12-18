@@ -16,7 +16,7 @@ public class Invader {
     private int x;
     private int y;
     private Direction direction;
-    private int speed;
+    private double speed;
     
     public Invader(int x) {
         this.x = x;
@@ -35,6 +35,12 @@ public class Invader {
     }
     public void setY(int y) {
         this.y = y;
+    }
+    public double getSpeed() {
+        return this.speed;
+    }
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
     public Direction getDirection() {
         return this.direction;
@@ -65,6 +71,8 @@ public class Invader {
             }
             this.setX(newX);
         }
+        double newSpeed = this.speed + 0.001 * this.speed;
+        this.setSpeed(newSpeed);
     }
     
 }

@@ -61,14 +61,17 @@ public class SpaceinvadersUi extends Application{
         Label rule1 = new Label("Pelaajan hahmo on sininen ja se liikkuu nuolinäppäimistä sekä ampuu X-näppäimestä.");
         Label rule2 = new Label("Vastustajat ovat punaisia, ja ne pitää ampua ennen kuin ne ehtivät maahan asti. Osuessaan vastustajaan ammuksella pelaaja  saa pisteitä.");
         Label rule3 = new Label("Pisteesi näet pelin vasemmasta yläkulmasta, ja pelin voit keskeyttää keskeytä-nappulasta pelin aikana.");
+        Label rule4 = new Label("Pelin jälkeen voit tallentaa pisteesi, ja niitä pääset tarkastelemaan Huippupisteet-valikosta.");
         rule1.setWrapText(true);
         rule2.setWrapText(true);
         rule3.setWrapText(true);
+        rule4.setWrapText(true);
         VBox rules = new VBox();
         rules.setSpacing(5);
         rules.getChildren().add(rule1);
         rules.getChildren().add(rule2);
         rules.getChildren().add(rule3);
+        rules.getChildren().add(rule4);
         Button directionsToBeginning = new Button("Etusivulle");
         BorderPane rulePage = new BorderPane();
         
@@ -93,16 +96,17 @@ public class SpaceinvadersUi extends Application{
             System.out.println("ei toiminut daon luonti");
         }
         Game game = new Game(pointDao);
-        //Game game = new Game();
         
         //pistenäkymä
         Label pointsHeader = new Label("Viimeisimmät pisteet:");
         Button pointsToBeginning = new Button("Etusivulle");
         BorderPane pointsPage = new BorderPane();
-        pointsPage.setTop(pointsHeader);
+        //pointsPage.setTop(pointsHeader);
         pointsPage.setBottom(pointsToBeginning);
+        
         VBox pointTable = new VBox();
         pointTable.setSpacing(5);
+        pointTable.getChildren().add(pointsHeader);
         
         List<Point> pointsSaved = game.getLast10Points();
         if(pointsSaved.size() != 0) {
@@ -110,8 +114,15 @@ public class SpaceinvadersUi extends Application{
                 pointTable.getChildren().add(new Label(pointsSaved.get(i).getPoints() + "\t" + pointsSaved.get(i).getPlayer()));
             }
         }
-            
+        
+        Label bestPointsHeader = new Label("Parhaat pisteet:");
+        VBox bestPointTable = new VBox();
+        bestPointTable.setSpacing(5);
+        bestPointTable.getChildren().add(bestPointsHeader);
+        bestPointTable.getChildren().add(new Label(game.getBestPoints().getPoints() + "\t" + game.getBestPoints().getPlayer()));
+        
         pointsPage.setCenter(pointTable);
+        pointsPage.setRight(bestPointTable);
 
         pointsPage.setPrefSize(400, 400);
         pointsPage.setPadding(new Insets(20, 20, 20, 20));
@@ -147,7 +158,7 @@ public class SpaceinvadersUi extends Application{
         resultpage.setPadding(new Insets(20, 20, 20, 20));
         Scene resultview= new Scene(resultpage);
         
-        //drawing
+        //piirtäminen
         new AnimationTimer(){
             private long previous;
             

@@ -174,10 +174,13 @@ public class Game {
                     missile.setState(false);
                     missile.setX(195);
                     missile.setY(350);
+                    
+                    double invadersSpeed = invaders.get(i).getSpeed();
                     invaders.remove(i);
                     int xForInvader = rand.nextInt(340);
                     xForInvader += 20;
                     Invader invader = new Invader(xForInvader);
+                    invader.setSpeed(invadersSpeed);
                     this.invaders.add(invader);
                 }
             }
@@ -240,11 +243,9 @@ public class Game {
         List<Point> allPoints = this.pointDao.getAll();
         if (allPoints.size() >= 10) {
             List<Point> last10Points = allPoints.subList(allPoints.size() - 10, allPoints.size());
-            //Collections.reverse(last10Points);
             return last10Points;
         } else {
             List<Point> last10Points = allPoints;
-            //Collections.reverse(last10Points);
             return last10Points;
         }
     }
@@ -254,5 +255,17 @@ public class Game {
     */
     public List<Point> getAllPoints() {
         return this.pointDao.getAll();
+    }
+    
+    public Point getBestPoints() {
+        this.topPoints.clear();
+        List<Point> allPoints = this.getAllPoints();
+        for(int i = 0; i < allPoints.size(); i ++) {
+            this.topPoints.put(allPoints.get(i).getPoints(), allPoints.get(i).getPlayer());
+        }
+        int firstKey = this.topPoints.firstKey();
+        String playerName = this.topPoints.get(firstKey);
+        Point bestPoints = new Point(firstKey, playerName);
+        return bestPoints;
     }
 }
