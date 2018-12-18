@@ -22,7 +22,7 @@ Pelin ohjeita ja sääntöjä pääsee lukemaan, kun painaa aloitusnäkymässä 
 
 Ohjenäkymä näyttää seuraavalta:
 
-![ohjenäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/palin_ohjeet.png)
+![ohjenäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/pelin_ohjeet.png)
 
 Ohjeista pääsee takaisin aloitussivulle painamalla alanurkan nappia "Etusivulle".
 
@@ -46,7 +46,7 @@ Jos peliä ei halua pelata loppuun, sen saa keskeytettyä nappulasta "Keskeytä 
 
 Peli loppuu, kun punaiset vatustajahahmot pääsevät liikkumaan pelialueen alareunaan. Tällöin pelin loppunäkymä avautuu käyttäjälle:
 
-![pelin loppunäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/palinLoppu.png)
+![pelin loppunäkymä](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/pelinLoppu.png)
 
 Loppunäkymä näyttää pelaajalle pisteet ja pyytää syöttämään tekstikenttään pelaajan nimen tai nimimerkin, jolla pisteet tallennetaan.Tallentaminen ja aloitusnäkymään siirtyminen tapahtuu "Tallenna pisteet"-napista.
 
