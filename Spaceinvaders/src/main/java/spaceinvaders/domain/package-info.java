@@ -2,4 +2,4 @@
  * Sovelluslogiikka 
  */
 
-package todoapp.domain;
+package spaceinvaders.domain;
