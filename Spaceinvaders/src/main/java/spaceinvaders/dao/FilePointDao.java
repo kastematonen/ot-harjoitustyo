@@ -30,14 +30,12 @@ public class FilePointDao implements Dao {
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
                 int part0 = Integer.parseInt(parts[0]);
-                Point u = new Point(part0, parts[1]);
-                points.add(u);
+                Point p = new Point(part0, parts[1]);
+                points.add(p);
             }
-            System.out.println("lukeminen onnistui!");
         } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
-            System.out.println("lukeminen ei onnistunut - tehtiin uusi tiedosto nimellä");
         }
     }
     
@@ -46,7 +44,7 @@ public class FilePointDao implements Dao {
             for (Point point : points) {
                 writer.write(point.getPoints() + ";" + point.getPlayer() + "\n");
             }
-        } 
+        }
     }
     
     @Override
@@ -57,14 +55,12 @@ public class FilePointDao implements Dao {
     @Override
     public Point create(Point point) throws Exception {
         points.add(point);
-        //System.out.println("listalle onnistui");
         save();
         return point;
     }
     public void clearFile() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             writer.write("");
-            System.out.println("tiedosto tyhjennetty");
         } 
     }
 }

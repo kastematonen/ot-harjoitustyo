@@ -215,23 +215,11 @@ public class Game {
     * 
     */
     public void addPointsToList(int points, String name) {
-//        if (this.topPoints.size() > 9) {
-//            int lastKey = this.topPoints.lastKey();
-//            if (points > lastKey) {
-//                this.topPoints.remove(lastKey);
-//                this.topPoints.put(points, name);
-//            }
-//        } else {
-//            this.topPoints.put(points, name);
-//        }
-
         Point pointsToSave = new Point(points, name);
         
         try {
             this.pointDao.create(pointsToSave);
-            System.out.println("toimi pisteiden tallennus");
         } catch (Exception e) {
-            System.out.println("ei toiminut pisteiden tallennus");
         }
     }
     /**
@@ -266,7 +254,6 @@ public class Game {
         if (this.topPoints.size() > 0) {
             int firstKey = this.topPoints.firstKey();
             String playerName = this.topPoints.get(firstKey);
-            //Point bestPoints = new Point(firstKey, playerName);
             String bestPoints = firstKey + "\t" + playerName;
             return bestPoints;
         } else {

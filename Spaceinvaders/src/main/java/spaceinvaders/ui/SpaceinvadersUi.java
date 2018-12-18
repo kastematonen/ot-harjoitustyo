@@ -91,9 +91,9 @@ public class SpaceinvadersUi extends Application{
         FilePointDao pointDao = null;
         try {
             pointDao = new FilePointDao(fileName);
-            System.out.println("daon luonti toimi");
         } catch (Exception e) {
-            System.out.println("ei toiminut daon luonti");
+            //virheviesti&
+            ikkuna.close();
         }
         Game game = new Game(pointDao);
         
@@ -106,7 +106,6 @@ public class SpaceinvadersUi extends Application{
         
         VBox pointTable = new VBox();
         pointTable.setSpacing(5);
-        //pointTable.getChildren().add(pointsHeader);
         
         List<Point> pointsSaved = game.getLast10Points();
         if(pointsSaved.size() != 0) {
@@ -119,7 +118,6 @@ public class SpaceinvadersUi extends Application{
         VBox bestPointTable = new VBox();
         bestPointTable.setSpacing(5);
         bestPointTable.getChildren().add(bestPointsHeader);
-        //bestPointTable.getChildren().add(new Label(game.getBestPoints().getPoints() + "\t" + game.getBestPoints().getPlayer()));
         bestPointTable.getChildren().add(new Label(game.getBestPoints()));
         
         pointsPage.setCenter(pointTable);
@@ -268,17 +266,6 @@ public class SpaceinvadersUi extends Application{
             String nameToSave = playerName.getText();
             game.addPointsToList(pointsToSave, nameToSave);
             
-//            VBox pointTable = new VBox();
-//            pointTable.setSpacing(5);
-
-
-//            Set set = game.getTopPoints().entrySet();
-//            Iterator iterator = set.iterator();
-//            while(iterator.hasNext()) {
-//               Map.Entry mentry = (Map.Entry)iterator.next();
-//               pointTable.getChildren().add(new Label(mentry.getKey() + "\t" + mentry.getValue()));
-//            }
-            
             pointTable.getChildren().clear();
             List<Point> lastPoints = game.getLast10Points();
             for(int i = 0; i < lastPoints.size();i ++) {
@@ -287,7 +274,6 @@ public class SpaceinvadersUi extends Application{
             bestPointTable.getChildren().clear();
             bestPointTable.getChildren().add(bestPointsHeader);
             bestPointTable.getChildren().add(new Label(game.getBestPoints()));
-            //pointsPage.setCenter(pointTable);
             
             game.newGame();
             ikkuna.setScene(beginningPage);
