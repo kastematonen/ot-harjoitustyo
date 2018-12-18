@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+/**
+ * Luokka on yliluokka pelin hahmoille Player, Missile ja Invader.
+ */
 public class GameComponent {
     private int x;
     private int y;

@@ -33,6 +33,9 @@ import java.util.stream.Collectors;
 import spaceinvaders.domain.*;
 import spaceinvaders.dao.*;
 
+/**
+ * Luokka vastaa sovelluksen käyttöliittymästä.
+ */
 public class SpaceinvadersUi extends Application{
     @Override
     public void start(Stage ikkuna) {

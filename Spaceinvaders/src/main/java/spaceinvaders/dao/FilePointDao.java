@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import spaceinvaders.domain.*;
-
+/**
+ * Luokka vastaa pisteiden tallentamisesta tiedostoon.
+ */
 public class FilePointDao implements Dao {
     private List<Point> points;
     private String file;
@@ -38,7 +40,9 @@ public class FilePointDao implements Dao {
             writer.close();
         }
     }
-    
+    /**
+    * Metodi tallentaa tiedot tiedostoon.
+    */
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Point point : points) {
@@ -46,18 +50,31 @@ public class FilePointDao implements Dao {
             }
         }
     }
-    
+    /**
+    * Metodi palauttaa tiedostoon tallennetut tiedot.
+    * 
+    * @return lista kaikista pisteolioista
+    */
     @Override
     public List<Point> getAll() {
         return points;
     }
-    
+    /**
+    * Metodi tallentaa Point-olion tiedot listaan ja tiedostoon.
+    * 
+    * @param   point   tallennettava piste-olio
+    * 
+    * @return tallennettava piste
+    */
     @Override
     public Point create(Point point) throws Exception {
         points.add(point);
         save();
         return point;
     }
+    /**
+    * Metodi tyhjentää tiedoston.
+    */
     public void clearFile() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             writer.write("");

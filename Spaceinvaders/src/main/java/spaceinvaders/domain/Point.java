@@ -9,6 +9,9 @@ package spaceinvaders.domain;
  *
  * @author julia
  */
+/**
+ * Luokkaa käytetään pisteiden tallentamisessa.
+ */
 public class Point {
     private int points;
     private String player;

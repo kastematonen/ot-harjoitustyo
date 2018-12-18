@@ -12,7 +12,9 @@ package spaceinvaders.dao;
 import java.sql.*;
 import java.util.*;
 import spaceinvaders.domain.*;
-
+/**
+ * Luokka tallentamisessa käytettävä rajapinta.
+ */
 public interface Dao {
     Point create(Point point) throws Exception;
     List<Point> getAll();

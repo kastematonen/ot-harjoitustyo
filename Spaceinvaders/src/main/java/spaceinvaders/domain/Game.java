@@ -244,7 +244,10 @@ public class Game {
     public List<Point> getAllPoints() {
         return this.pointDao.getAll();
     }
-    
+    /**
+    * Metodi palauttaa pistetiedoston parhaan pelin pisteet ja pelaajan nimimerkin.
+    * 
+    */
     public String getBestPoints() {
         this.topPoints.clear();
         List<Point> allPoints = this.getAllPoints();
