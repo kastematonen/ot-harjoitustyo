@@ -68,8 +68,8 @@ public class PlayerTest {
     }
     @Test
     public void constructorSetsSpeedRight(){
-        int speed = player.getSpeed();
-        assertEquals(10, speed);
+        double speed = player.getSpeed();
+        assertEquals(10, speed, 0.01);
     }
     @Test
     public void setXWorks(){
@@ -78,19 +78,14 @@ public class PlayerTest {
     }
     
     @Test
-    public void setNameWorks(){
-        player.setName("name");
-        assertEquals("name", player.getName());
-    }
-    @Test
     public void setYWorks(){
         player.setY(20);
         assertEquals(20, player.getY());
     }
     @Test
     public void setSpeedWorks(){
-        player.setSpeed(20);
-        assertEquals(20, player.getSpeed());
+        player.setSpeed(30);
+        assertEquals(30, player.getSpeed(), 0.01);
     }
     @Test
     public void setDirectionWorks(){

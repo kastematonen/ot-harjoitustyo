@@ -66,8 +66,8 @@ public class MissileTest {
     }
     @Test
     public void constructorSetsSpeedRight(){
-        int speed = missile.getSpeed();
-        assertEquals(25, speed);
+        double speed = missile.getSpeed();
+        assertEquals(25, speed, 0.01);
     }
     @Test
     public void constructorSetsStateRight(){
@@ -87,7 +87,7 @@ public class MissileTest {
     @Test
     public void setSpeedWorks(){
         missile.setSpeed(20);
-        assertEquals(20, missile.getSpeed());
+        assertEquals(20, missile.getSpeed(), 0.01);
     }
     @Test
     public void setDirectionWorks(){

@@ -260,7 +260,7 @@ public class Game {
     public String getBestPoints() {
         this.topPoints.clear();
         List<Point> allPoints = this.getAllPoints();
-        for(int i = 0; i < allPoints.size(); i ++) {
+        for (int i = 0; i < allPoints.size(); i++) {
             this.topPoints.put(allPoints.get(i).getPoints(), allPoints.get(i).getPlayer());
         }
         if (this.topPoints.size() > 0) {
