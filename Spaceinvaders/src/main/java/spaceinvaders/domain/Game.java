@@ -263,7 +263,7 @@ public class Game {
         for(int i = 0; i < allPoints.size(); i ++) {
             this.topPoints.put(allPoints.get(i).getPoints(), allPoints.get(i).getPlayer());
         }
-        if (this.topPoints.size() > 1) {
+        if (this.topPoints.size() > 0) {
             int firstKey = this.topPoints.firstKey();
             String playerName = this.topPoints.get(firstKey);
             //Point bestPoints = new Point(firstKey, playerName);
