@@ -56,7 +56,9 @@ Kaikkein korkeimpia pisteitä pääsee tarkastelemaan pistenäkymästä, jonne v
 
 Jos peliä on pelattu, näyttää näkymä seuraavanlaiselta:
 
-![huippupisteet](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/huippupisteet_on_pisteita.png)
+![huippupisteet](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/pistenakyma.png)
+
+Viimeisimmän pelin pisteet nimimerkillä "neljäs" ovat listan alimpana, ja oikealla näkyy parhaimmat pisteet.
 
 Aloitusnäkymään voi siirtyä nappulasta "Etusivulle".
 
