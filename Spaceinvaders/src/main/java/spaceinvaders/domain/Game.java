@@ -257,15 +257,20 @@ public class Game {
         return this.pointDao.getAll();
     }
     
-    public Point getBestPoints() {
+    public String getBestPoints() {
         this.topPoints.clear();
         List<Point> allPoints = this.getAllPoints();
         for(int i = 0; i < allPoints.size(); i ++) {
             this.topPoints.put(allPoints.get(i).getPoints(), allPoints.get(i).getPlayer());
         }
-        int firstKey = this.topPoints.firstKey();
-        String playerName = this.topPoints.get(firstKey);
-        Point bestPoints = new Point(firstKey, playerName);
-        return bestPoints;
+        if (this.topPoints.size() > 1) {
+            int firstKey = this.topPoints.firstKey();
+            String playerName = this.topPoints.get(firstKey);
+            //Point bestPoints = new Point(firstKey, playerName);
+            String bestPoints = firstKey + "\t" + playerName;
+            return bestPoints;
+        } else {
+            return "";
+        }
     }
 }

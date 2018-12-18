@@ -101,12 +101,12 @@ public class SpaceinvadersUi extends Application{
         Label pointsHeader = new Label("Viimeisimmät pisteet:");
         Button pointsToBeginning = new Button("Etusivulle");
         BorderPane pointsPage = new BorderPane();
-        //pointsPage.setTop(pointsHeader);
+        pointsPage.setTop(pointsHeader);
         pointsPage.setBottom(pointsToBeginning);
         
         VBox pointTable = new VBox();
         pointTable.setSpacing(5);
-        pointTable.getChildren().add(pointsHeader);
+        //pointTable.getChildren().add(pointsHeader);
         
         List<Point> pointsSaved = game.getLast10Points();
         if(pointsSaved.size() != 0) {
@@ -119,7 +119,8 @@ public class SpaceinvadersUi extends Application{
         VBox bestPointTable = new VBox();
         bestPointTable.setSpacing(5);
         bestPointTable.getChildren().add(bestPointsHeader);
-        bestPointTable.getChildren().add(new Label(game.getBestPoints().getPoints() + "\t" + game.getBestPoints().getPlayer()));
+        //bestPointTable.getChildren().add(new Label(game.getBestPoints().getPoints() + "\t" + game.getBestPoints().getPlayer()));
+        bestPointTable.getChildren().add(new Label(game.getBestPoints()));
         
         pointsPage.setCenter(pointTable);
         pointsPage.setRight(bestPointTable);
@@ -283,7 +284,9 @@ public class SpaceinvadersUi extends Application{
             for(int i = 0; i < lastPoints.size();i ++) {
                 pointTable.getChildren().add(new Label(lastPoints.get(i).getPoints() + "\t" + lastPoints.get(i).getPlayer()));
             }
-
+            bestPointTable.getChildren().clear();
+            bestPointTable.getChildren().add(bestPointsHeader);
+            bestPointTable.getChildren().add(new Label(game.getBestPoints()));
             //pointsPage.setCenter(pointTable);
             
             game.newGame();
