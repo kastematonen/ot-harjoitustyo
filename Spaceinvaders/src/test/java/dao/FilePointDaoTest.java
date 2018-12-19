@@ -23,11 +23,6 @@ import java.util.*;
  * @author julia
  */
 public class FilePointDaoTest {
-//    @Rule
-//    public TemporaryFolder testFolder = new TemporaryFolder();
-//    
-//    File file;  
-//    FilePointDao dao;
     FilePointDao pointDao;
     
     public FilePointDaoTest() {

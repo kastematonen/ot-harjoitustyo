@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 import spaceinvaders.domain.Player; 
 import spaceinvaders.domain.Direction;
-
 import spaceinvaders.domain.Missile; 
 
 /**
@@ -45,12 +44,6 @@ public class PlayerTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    @Test
-    public void hello() {}
-    
     @Test
     public void constructorSetsXRight(){
         int x = player.getX();
