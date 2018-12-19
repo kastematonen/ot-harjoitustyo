@@ -14,4 +14,6 @@ päivä | aika | mitä tein
 4.12. | 2 | pistenäkymä näyttää yhden käynnistyskerran pisteet oikein, lisää testejä, sekvenssikaavio
 10.12. | 3 | lisää testejä, javadocia
 11.12. | 5 | käyttöohje ja arkkitehtuurikuvaus, tallennus tiedostoon, rakenteen siistimistä
-yht | 30,5 | 
+18.12. | 5 | koodin siistimistä, yliluokka, testejä ym
+19.12. | | 
+yht | 35,5 | 
