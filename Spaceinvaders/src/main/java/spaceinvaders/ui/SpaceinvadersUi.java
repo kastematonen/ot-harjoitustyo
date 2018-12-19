@@ -103,8 +103,8 @@ public class SpaceinvadersUi extends Application{
         } catch (Exception e) {
             try {
                 pointDao = new FilePointDao("pointFile");
-                } catch (Exception e2) {
-                }
+            } catch (Exception e2) {
+            }
         }
         Game game = new Game(pointDao);
         

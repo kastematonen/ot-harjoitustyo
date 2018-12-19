@@ -43,25 +43,6 @@ public class InvaderTest {
     public void tearDown() {
     }
     @Test
-    public void getXWorks(){
-        assertEquals(20, invader.getX());
-    }
-    @Test
-    public void setXWorks(){
-        invader.setX(30);
-        assertEquals(30, invader.getX());
-    }
-    @Test
-    public void setYWorks(){
-        invader.setY(20);
-        assertEquals(20, invader.getY());
-    }
-    @Test
-    public void setDirectionWorks(){
-        invader.setDirection(Direction.LEFT);
-        assertEquals(Direction.LEFT, invader.getDirection());
-    }
-    @Test
     public void movingRight(){
         invader.setX(250);
         invader.setDirection(Direction.RIGHT);

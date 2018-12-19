@@ -44,50 +44,11 @@ public class MissileTest {
     }
 
     @Test
-    public void constructorSetsXRight(){
-        int x = missile.getX();
-        assertEquals(195, x);
-    }
-    @Test
-    public void constructorSetsYRight(){
-        int y = missile.getY();
-        assertEquals(350, y);
-    }
-    @Test
-    public void constructorSetsDirectionRight(){
-        Direction direction = missile.getDirection();
-        assertEquals(Direction.STILL, direction);
-    }
-    @Test
-    public void constructorSetsSpeedRight(){
-        double speed = missile.getSpeed();
-        assertEquals(25, speed, 0.01);
-    }
-    @Test
     public void constructorSetsStateRight(){
         boolean state = missile.getState();
         assertEquals(false, state);
     }
-    @Test
-    public void setXWorks(){
-        missile.setX(20);
-        assertEquals(20, missile.getX());
-    }
-    @Test
-    public void setYWorks(){
-        missile.setY(20);
-        assertEquals(20, missile.getY());
-    }
-    @Test
-    public void setSpeedWorks(){
-        missile.setSpeed(20);
-        assertEquals(20, missile.getSpeed(), 0.01);
-    }
-    @Test
-    public void setDirectionWorks(){
-        missile.setDirection(Direction.LEFT);
-        assertEquals(Direction.LEFT, missile.getDirection());
-    }
+    
     @Test
     public void setStateWorks(){
         missile.setState(true);
