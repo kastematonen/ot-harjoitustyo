@@ -4,6 +4,11 @@ Lataa tiedosto spaceinvaders.jar
 
 ## Konfigurointi
 
+Ohjelma olettaa, että sen koodihakemistossa on tiedosto config.properties, joka määrittää tiedoston nimeä, johon pelaajien pisteet tallennetaan. Tiedoston sisältö on seuraava:
+
+    pointFile=points.txt
+Tällöin ohjelma tallentaa pisteet points.txt-nimiseen tiedostoon.
+
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistyy komennolla
