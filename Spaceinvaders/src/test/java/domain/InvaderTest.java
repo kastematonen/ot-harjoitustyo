@@ -124,4 +124,11 @@ public class InvaderTest {
         invader.move();
         assertEquals(45, invader.getY());
     }
+    @Test
+    public void notMovingWhenStill(){
+        invader.setX(25);
+        invader.setDirection(Direction.STILL);
+        invader.move();
+        assertEquals(25, invader.getX());
+    }
 }

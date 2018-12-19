@@ -32,12 +32,18 @@ import java.util.stream.Collectors;
 import spaceinvaders.domain.*;
 import spaceinvaders.dao.*;
 
+import java.io.FileInputStream;
+import java.util.List;
+import java.util.Properties;
+
 /**
  * Luokka vastaa sovelluksen käyttöliittymästä.
  */
 public class SpaceinvadersUi extends Application{
+    
     @Override
     public void start(Stage ikkuna) {
+        
         
         //etusivu
         Label welcomeText = new Label("Space Invaders");
@@ -89,10 +95,13 @@ public class SpaceinvadersUi extends Application{
         Canvas canvas = new Canvas(400,380);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
-        String fileName = "points";
+        //String fileName = "points";
         FilePointDao pointDao = null;
         try {
-            pointDao = new FilePointDao(fileName);
+            Properties properties = new Properties();
+            properties.load(new FileInputStream("config.properties"));
+            String pointsFile = properties.getProperty("pointFile");
+            pointDao = new FilePointDao(pointsFile);
         } catch (Exception e) {
             //virheviesti&
             ikkuna.close();
