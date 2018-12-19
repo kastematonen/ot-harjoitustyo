@@ -28,3 +28,4 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
 
 ## Jatkokehitysideoita
 * pisteiden tallentuminen verkkoon, jolloin pisteitä voisi vertailla myös kaverin pelien kanssa samassa näkymässä
+* vaikeustason valinta pelissä: vaikka vastustajien nopeus kasvaakin pelin edetessä, ja peli vaikeutuu koko ajan, voisi vastustajien lukumäärän valinta olla hyvä lisä peliin.
