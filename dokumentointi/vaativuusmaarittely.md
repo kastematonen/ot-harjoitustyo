@@ -24,7 +24,7 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
   * pisteiden tallentaminen nimimerkillä pelin pistenäkymässä
 * Pistesivu
   * näytetään viimeisimpien 10 pelin pisteet ja ne saavuttaneet nimimerkit
-  * näytetään kaikista parhaan tuloksen pisteet ja nimimerkki
+  * näytetään kaikista parhaan tuloksen pisteet ja viimeisin sen saavuttanut nimimerkki
 
 ## Jatkokehitysideoita
 * pisteiden tallentuminen verkkoon, jolloin pisteitä voisi vertailla myös kaverin pelien kanssa samassa näkymässä
