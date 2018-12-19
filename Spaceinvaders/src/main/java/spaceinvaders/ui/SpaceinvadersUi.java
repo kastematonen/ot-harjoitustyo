@@ -101,8 +101,10 @@ public class SpaceinvadersUi extends Application{
             String pointsFile = properties.getProperty("pointFile");
             pointDao = new FilePointDao(pointsFile);
         } catch (Exception e) {
-            //virheviesti&
-            ikkuna.close();
+            try {
+                pointDao = new FilePointDao("pointFile");
+                } catch (Exception e2) {
+                }
         }
         Game game = new Game(pointDao);
         
