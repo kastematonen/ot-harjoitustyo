@@ -9,6 +9,9 @@ Ohjelmaa on testattu .....testein.....
 ### DAO-luokka
 
 ### Testikattavuus
+Testikattavuus sovellukselle poislukien käyttöliittymä on esitetty alla kuvassa. Sovelluksen rivikattavuus on 99% ja sen haarautumakattavuus on 100%.
+
+![kattavuusraportti](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/testikattavuus.png)
 
 ## Järjestelmätestaus
 
