@@ -31,14 +31,14 @@ public class Player extends GameComponent {
             return;
         } else if (super.getDirection() == Direction.RIGHT) {
             newX += super.getSpeed();
-            //ei pääse reunan yli
+            //cannot go over edge
             if (newX > 360) {
                 newX = 360;
             }
             super.setX(newX);
         } else {
             newX -= super.getSpeed();
-            //ei pääse reunan yli
+            //cannot go over edge
             if (newX < 20) {
                 newX = 20;
             }

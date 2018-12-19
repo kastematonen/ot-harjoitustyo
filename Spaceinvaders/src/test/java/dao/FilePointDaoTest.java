@@ -23,11 +23,12 @@ import java.util.*;
  * @author julia
  */
 public class FilePointDaoTest {
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
-    
-    File file;  
-    FilePointDao dao;
+//    @Rule
+//    public TemporaryFolder testFolder = new TemporaryFolder();
+//    
+//    File file;  
+//    FilePointDao dao;
+    FilePointDao pointDao;
     
     public FilePointDaoTest() {
     }
@@ -42,34 +43,48 @@ public class FilePointDaoTest {
     
     @Before
     public void setUp() throws Exception {
-        file = testFolder.newFile("testfile_points.txt");  
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write("20;first player\n");
+        pointDao = null;
+        try {
+            pointDao = new FilePointDao("testDaoFile");
+            pointDao.clearFile();
+        } catch (Exception e) {
         }
-        try (FileWriter file = new FileWriter(file.getAbsolutePath())) {
-            file.write("testertester;Teppo Testaaja\n");
+        try {
+            pointDao.create(new Point(20, "first"));
+        } catch (Exception e) {
         }
-        dao = new FilePointDao("testfile_points.txt");
     }
     
     @After
     public void tearDown() {
-        file.delete();
+        try {
+            pointDao.clearFile();
+        } catch (Exception e) {
+        }
     }
 
     @Test
     public void pointsReadFromFile() {
-        List<Point> points = dao.getAll();
+        List<Point> points = pointDao.getAll();
         assertEquals(1, points.size());
     }
     @Test
     public void pointsReadCorrectlyFromFile() {
-        List<Point> points = dao.getAll();
+        List<Point> points = pointDao.getAll();
         assertEquals(20, points.get(0).getPoints());
     }
     @Test
     public void nameReadCorrectlyFromFile() {
-        List<Point> points = dao.getAll();
-        assertEquals("firs player", points.get(0).getPlayer());
+        List<Point> points = pointDao.getAll();
+        assertEquals("first", points.get(0).getPlayer());
+    }
+    @Test
+    public void createdPointFound() {
+        try {
+            pointDao.create(new Point(30, "second"));
+        } catch (Exception e) {
+        }
+        List<Point> points = pointDao.getAll();
+        assertEquals("second", points.get(1).getPlayer());
     }
 }

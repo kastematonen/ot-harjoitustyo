@@ -45,7 +45,7 @@ public class SpaceinvadersUi extends Application{
     public void start(Stage ikkuna) {
         
         
-        //etusivu
+        //frontpage
         Label welcomeText = new Label("Space Invaders");
         Button beginningToDirections = new Button("Ohjeisiin");
         Button beginningToGame = new Button("Peliin");
@@ -64,7 +64,7 @@ public class SpaceinvadersUi extends Application{
         frontPage.setPadding(new Insets(20, 20, 20, 20));
         Scene beginningPage= new Scene(frontPage);
         
-        //ohjenakyma
+        //directions page
         Label header = new Label("Space Invaders -pelin ohjeet");
         Label rule1 = new Label("Pelaajan hahmo on sininen ja se liikkuu nuolinäppäimistä sekä ampuu X-näppäimestä.");
         Label rule2 = new Label("Vastustajat ovat punaisia, ja ne pitää ampua ennen kuin ne ehtivät maahan asti. Osuessaan vastustajaan ammuksella pelaaja  saa pisteitä.");
@@ -90,12 +90,10 @@ public class SpaceinvadersUi extends Application{
         rulePage.setPadding(new Insets(20, 20, 20, 20));
         Scene ruleview= new Scene(rulePage);
         
-        //pelinäkymän piirtäminen
-        
+        //for grawing game view
         Canvas canvas = new Canvas(400,380);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
-        //String fileName = "points";
         FilePointDao pointDao = null;
         try {
             Properties properties = new Properties();
@@ -108,7 +106,7 @@ public class SpaceinvadersUi extends Application{
         }
         Game game = new Game(pointDao);
         
-        //pistenäkymä
+        //points view
         Label pointsHeader = new Label("Viimeisimmät pisteet:");
         Button pointsToBeginning = new Button("Etusivulle");
         BorderPane pointsPage = new BorderPane();
@@ -140,7 +138,7 @@ public class SpaceinvadersUi extends Application{
         
         
         
-        //pelinäkymä
+        //game view
         BorderPane gamePage = new BorderPane();
         Label points = new Label("pisteet: " + game.getPoints());
         Button gameToBeginning = new Button("Keskeytä peli");
@@ -153,7 +151,7 @@ public class SpaceinvadersUi extends Application{
         gamePage.setPrefSize(400, 400);
         Scene gameview= new Scene(gamePage);
         
-        //pelin loppunäkymä
+        //game end view
         BorderPane resultPage = new BorderPane();
         Label endPoints = new Label("pisteesi: " + game.getPoints());
         Button savePoints = new Button("Tallenna pisteet");
@@ -168,7 +166,7 @@ public class SpaceinvadersUi extends Application{
         resultPage.setPadding(new Insets(20, 20, 20, 20));
         Scene resultview= new Scene(resultPage);
         
-        //piirtäminen
+        //drawing
         new AnimationTimer(){
             private long previous;
             
@@ -219,7 +217,7 @@ public class SpaceinvadersUi extends Application{
             }
         }.start();
         
-        //pelinäkymä: näppäimet
+        //game view: keys
         gameview.setOnKeyPressed((event) -> {
             if(event.getCode().equals(KeyCode.RIGHT)){
                 game.getPlayer().setDirection(Direction.RIGHT);
@@ -238,14 +236,14 @@ public class SpaceinvadersUi extends Application{
             } 
         });
         
-        //napit
+        //buttons
         beginningToDirections.setOnAction((event) -> {
             ikkuna.setScene(ruleview);
         });
         
         beginningToGame.setOnAction((event) -> {
             ikkuna.setScene(gameview);
-            //peli ei pyöri taustalla, vaikka sinne ei siirrytä heti alkunäkymästä:
+            //game does not run in background even if you do not go to the game straight away
             game.setGameOn(true);
         });
         

@@ -14,7 +14,7 @@ package spaceinvaders.domain;
  * Luokka kuvaa pelin pelaajan ammusta.
  */
 public class Missile extends GameComponent {
-    //false=ei laukaistu, true = laukaistu
+    //false=not fired, true = fired
     private boolean state;
     
     public Missile() {

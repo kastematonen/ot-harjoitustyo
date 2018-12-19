@@ -31,10 +31,7 @@ public class Game {
     private Missile missile;
     private int points;
     private FilePointDao pointDao;
-    
-    
     private TreeMap<Integer, String> topPoints;
-    
     private boolean gameOn;
     
     public Game(FilePointDao pointDao) {

@@ -41,24 +41,20 @@ public class GameTest {
         pointDao = null;
         try {
             pointDao = new FilePointDao("testPointFile");
-            System.out.println("daon luonti toimi");
             pointDao.clearFile();
         } catch (Exception e) {
-            System.out.println("ei toiminut daon luonti");
         }
         game = new Game(pointDao);
     }
     
     @After
     public void tearDown() {
+        try {
+            pointDao.clearFile();
+        } catch (Exception e) {
+        }
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-     @Test
-     public void hello() {}
-     
+    
     @Test
     public void constructorSetsGemeOverRight(){
         boolean gameOver = game.getGameOver();
@@ -165,45 +161,12 @@ public class GameTest {
 
     @Test
     public void addPointsToListListWorks(){
-        try {
-            pointDao.clearFile();
-        } catch (Exception e) {
-            System.out.println("ei toiminut tiedoston tyhjennys");
-        }
         game.addPointsToList(5, "testPlayer");
         List<Point> allPoints = game.getAllPoints();
-        System.out.println(allPoints.toString());
         Point first = allPoints.get(0);
         
         assertEquals("testPlayer", first.getPlayer());
     }
-//    @Test
-//    public void addPointsToListListFullToList(){
-//        System.out.println("listalle");
-//        for(int i=0;i<10;i++) {
-//            game.addPointsToList(40, "player1");
-//            System.out.println(game.getTopPoints().toString());
-//        }
-//        game.addPointsToList(60, "player2");
-//        System.out.println(game.getTopPoints().toString());
-//        
-//        int firstKey = game.getTopPoints().firstKey();
-//        String firsvalue = game.getTopPoints().get(firstKey);
-//        String[] splitted = firsvalue.split("\t");
-//        int lastPoints = Integer.parseInt(splitted[0]);
-//        
-//        assertEquals(60, lastPoints);
-        //System.out.println("listalle");
-//        for(int i=0;i<10;i++) {
-//            game.addPointsToList(i+10, "player1");
-//            //System.out.println(game.getTopPoints().toString());
-//        }
-//        game.addPointsToList(30, "player2");
-//        //System.out.println(game.getTopPoints().toString());
-//        int firstKey = game.getTopPoints().firstKey();
-//        
-//        assertEquals(30, firstKey);
-//    }
     @Test
     public void isCollisionTrueWhenIsCollision(){
         game.getMissile().setX(50);
@@ -261,5 +224,71 @@ public class GameTest {
         game.setInvaders(invaders);
         game.handleCollision(game.getMissile(), game.getInvaders());
         assertEquals(10, game.getPoints());
+    }
+    @Test
+    public void getLast10PointsWorksWithLessThan10(){
+        try {
+            pointDao.create(new Point(20, "first"));
+            pointDao.create(new Point(30, "second"));
+            pointDao.create(new Point(40, "third"));
+        } catch (Exception e) {
+        }
+        List<Point> points = game.getLast10Points();
+        assertEquals(3, points.size());
+    }
+    @Test
+    public void getLast10PointsWorksWithMoreThan10TakesLastOneIn(){
+        try {
+            pointDao.create(new Point(20, "one"));
+            pointDao.create(new Point(30, "two"));
+            pointDao.create(new Point(40, "three"));
+            pointDao.create(new Point(50, "four"));
+            pointDao.create(new Point(60, "five"));
+            pointDao.create(new Point(70, "six"));
+            pointDao.create(new Point(80, "seven"));
+            pointDao.create(new Point(90, "eight"));
+            pointDao.create(new Point(100, "nine"));
+            pointDao.create(new Point(110, "ten"));
+            pointDao.create(new Point(120, "eleven"));
+        } catch (Exception e) {
+        }
+        List<Point> points = game.getLast10Points();
+        assertEquals("eleven", points.get(9).getPlayer());
+    }
+    @Test
+    public void getLast10PointsWorksWithMoreThan10DeletesFirstOne(){
+        try {
+            pointDao.create(new Point(20, "one"));
+            pointDao.create(new Point(30, "two"));
+            pointDao.create(new Point(40, "three"));
+            pointDao.create(new Point(50, "four"));
+            pointDao.create(new Point(60, "five"));
+            pointDao.create(new Point(70, "six"));
+            pointDao.create(new Point(80, "seven"));
+            pointDao.create(new Point(90, "eight"));
+            pointDao.create(new Point(100, "nine"));
+            pointDao.create(new Point(110, "ten"));
+            pointDao.create(new Point(120, "eleven"));
+        } catch (Exception e) {
+        }
+        List<Point> points = game.getLast10Points();
+        assertEquals("two", points.get(0).getPlayer());
+    }
+    @Test
+    public void getBestPointsWorksWithPoints(){
+        try {
+            pointDao.create(new Point(20, "one"));
+            pointDao.create(new Point(50, "two"));
+            pointDao.create(new Point(30, "three"));
+            
+        } catch (Exception e) {
+        }
+        String points = game.getBestPoints();
+        assertEquals("50" + "\t" + "two", points);
+    }
+    @Test
+    public void getBestPointsWorksWithEmptyList(){
+        String points = game.getBestPoints();
+        assertEquals("", points);
     }
 }
