@@ -56,7 +56,7 @@ public class GameTest {
     }
     
     @Test
-    public void constructorSetsGemeOverRight(){
+    public void constructorSetsGameOverRight(){
         boolean gameOver = game.getGameOver();
         assertEquals(false, gameOver);
     }
@@ -66,7 +66,7 @@ public class GameTest {
         assertEquals(0, points);
     }
     @Test
-    public void constructorSetsGemeOnRight(){
+    public void constructorSetsGameOnRight(){
         boolean gameOn = game.getGameOn();
         assertEquals(false, gameOn);
     }
@@ -91,47 +91,14 @@ public class GameTest {
         assertEquals(195, player.getX());
     }
     @Test
-    public void setPlayer(){
-        Player player = new Player();
-        player.setX(200);
-        game.setPlayer(player);
-        assertEquals(200, game.getPlayer().getX());
-    }
-    @Test
     public void getMissile(){
         Missile missile = game.getMissile();
         assertEquals(195, missile.getX());
     }
     @Test
-    public void setMissile(){
-        Missile missile = new Missile();
-        missile.setX(200);
-        game.setMissile(missile);
-        assertEquals(200, game.getMissile().getX());
-    }
-    @Test
     public void getInvaders(){
         ArrayList<Invader> invaders = game.getInvaders();
         assertEquals(10, invaders.size());
-    }
-    @Test
-    public void setInvaders(){
-        ArrayList<Invader> invaders = new ArrayList<>();
-        invaders.add(new Invader(20));
-        game.setInvaders(invaders);
-        assertEquals(1, game.getInvaders().size());
-    }
-    @Test
-    public void getTopPointsEmpty(){
-        TreeMap<Integer, String> topPoints  = game.getTopPoints();
-        assertEquals(0, topPoints.size());
-    }
-    @Test
-    public void setTopPoints(){
-        TreeMap<Integer, String> topPoints  = new TreeMap<Integer, String>(Collections.reverseOrder());
-        topPoints.put(40, "player");
-        game.setTopPoints(topPoints);
-        assertEquals(1, game.getTopPoints().size());
     }
     @Test
     public void launchMissileMissileStateCganges(){

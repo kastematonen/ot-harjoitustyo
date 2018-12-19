@@ -57,20 +57,11 @@ public class Game {
     public Player getPlayer() {
         return this.player;
     }
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
     public ArrayList getInvaders() {
         return this.invaders;
     }
     public void setInvaders(ArrayList invaders) {
         this.invaders = invaders;
-    }
-    public TreeMap<Integer, String> getTopPoints() {
-        return this.topPoints;
-    }
-    public void setTopPoints(TreeMap<Integer, String> topPoints) {
-        this.topPoints = topPoints;
     }
     /**
     * Metodi luo tarvittavan määrän vastustajia niin, että jokainen niistä asettuu sattumanvaraiseen kohtaan x-koordinatiltaan.
@@ -88,9 +79,6 @@ public class Game {
     }
     public Missile getMissile() {
         return this.missile;
-    }
-    public void setMissile(Missile missile) {
-        this.missile = missile;
     }
     /**
     * Metodi laukaisee ammuksen eli se muuttaa ammuksen tilaa ja asettaa sen samaan kohtaan, jossa pelaaja sijaitsee.
