@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto spaceinvaders.jar
+Lataa tiedosto [spaceinvaders.jar](https://github.com/kastematonen/ot-harjoitustyo/releases/tag/viikko7)
 
 ## Konfigurointi
 
