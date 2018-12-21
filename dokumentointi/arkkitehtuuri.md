@@ -28,7 +28,7 @@ Sovelluksen logiikkapakkauksen luokat suhteutuvat toisiinsa seuraavasti:
 
 ![Luokkakaavio](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/luokkakaavio2.jpg)
 
-Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Gamen käyttämiä ilmentymiä pelin elementeistä.
+Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Gamen käyttämiä ja päivittämiä ilmentymiä pelin elementeistä.
 
  Game-luokan pelikäskyjä ovat:
 - void makeInvaders(int howMany)
@@ -43,7 +43,7 @@ Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Ga
 - List<Point> getAllPoints()
 - String getBestPoints()
 
-Sekvenssikaavio kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään. Kaaviosta tulee hyvin ilmi se, että käyttöliittymän Game-luokan ilmentymä hoitaa yhteydet muihin domain-luokkiin. Käyttöliittymä ja sovelluslogiikka toimivat siis erillisissa luokissa ja pakkauksissa.
+Sekvenssikaavio alla kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään. Tällöin peli vaihtaa pelinäkymän ja päivittää pelin. Kaaviosta tulee hyvin ilmi se, että käyttöliittymän Game-luokan ilmentymä hoitaa yhteydet muihin domain-luokkiin. Käyttöliittymä ja sovelluslogiikka toimivat siis erillisissa luokissa ja pakkauksissa.
 
 ![Sekvenssikaavio_pelin_aloitus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/sekvenssikaavio.jpg)
 
@@ -51,7 +51,17 @@ Sekvenssikaavio kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nap
 
 Pelissä tallennetaan pelin loputtua pisteet ja pelaajan nimimerkki tiedostoon dao-pakkauksen FilePointDao-luokan toimesta. Sama tiedosto luetaan, kun pelin pistenäkymään asetetaan tallennettuja pisteitä.
 
+### Tiedostot
+
+Sovellus tallentaa pisteet ja ne saaneet nimimerkit yhteen tiedostoon. Tiedosto voidaan määritellä config.properties-tiedostolla (kts. [käyttöohjeet](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)) tai sen puuttuessa ohjelma tallentaa pisteitä ennaltanimettyyn tiedostoon "pointFile".
+
+Sovellus tallentaa pisteet muodossa 
+
+    30;player
+    
+eli muodossa pisteet;nimi puolipisteellä eroteltuna.
+
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
-- Käyttöliittymäluokan start-metodi tosi pitkä -> näkymien koodien eriyttäminen omaan luokkaan tms?
-- (pelin pisteiden tallennus ei toimi täysin kunnolla: jos pelaaja saa jo pistelistassa olevat pisteet, tallennetaan pelaajan pisteet ensimmäisten pisteiden päälle) tällä hetkellä näyttää 10 viimeisimmän pelikerran tulokset
+- Käyttöliittymäluokan start-metodi on melko pitkä, joten sen eri näkymät voisi erottaa omiin tiedostoihinsa käyttämällä esimerkiksi FXML:ää.
+- Pelin huippupisteiden näyttäminen ei toimi täysin kunnolla: jos pelaaja saa jo pistelistassa olevat parhaat pisteet, näkyy pistenäkymässä vain ne viimeisimmäksi saavuttanut nimimerkki
