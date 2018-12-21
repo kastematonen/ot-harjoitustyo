@@ -46,7 +46,7 @@ Lentävä ammus näyttää seuraavanlaiselta:
 
 ![pelinäkymä, lentävä ammus](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/ammus.png)
 
-Jos ammus osuu punaiseen vastustajahahmoon, saa pelaaja pisteitä, ja ammus palaa takaisin alkutilaansa odottamaan uutta laukaisua. Pisteet näkyvät ylänurkassa ja päivittyvät sitä mukaan, kun niitä tulee. Jos ammus ei osu matkallaan vastustajiin, se palaa alkutilaansa päästyään pelinäkymän pelialueen yläreunaan.
+Jos ammus osuu punaiseen vastustajahahmoon, saa pelaaja pisteitä, ja ammus palaa takaisin alkutilaansa odottamaan uutta laukaisua. Pisteet näkyvät ylänurkassa ja päivittyvät sitä mukaan, kun niitä tulee. Jos ammus ei osu matkallaan vastustajiin, se palaa alkutilaansa päästyään pelinäkymän pelialueen yläreunaan. Vastustajien liike pelialueen alareunaa kohti nopeutuu pelin edetessä tehden pelistä haastavamman, jolloin selvitäkseen pidempään pelissä on pelaajan saatava ammuttua vastustajia, jotta ne lähtevät liikkumaan jälleen pelialueen yläreunasta.
 
 Jos peliä ei halua pelata loppuun, sen saa keskeytettyä nappulasta "Keskeytä peli", jolloin palataan takaisin aloitusnäkymään.
 
