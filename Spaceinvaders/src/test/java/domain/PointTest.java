@@ -37,11 +37,18 @@ public class PointTest {
     @After
     public void tearDown() {
     }
-    
+    @Test
+    public void getPlayerWorks(){
+        assertEquals("player", point.getPlayer());
+    }
     @Test
     public void setPlayerWorks(){
         point.setPlayer("player1");
         assertEquals("player1", point.getPlayer());
+    }
+    @Test
+    public void getPointsWorks(){
+        assertEquals(0, point.getPoints());
     }
     @Test
     public void setPointsWorks(){

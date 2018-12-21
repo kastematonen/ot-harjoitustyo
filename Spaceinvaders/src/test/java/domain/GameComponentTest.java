@@ -38,7 +38,7 @@ public class GameComponentTest {
     @After
     public void tearDown() {
     }
-
+    
     @Test
     public void setXWorks(){
         component.setX(20);

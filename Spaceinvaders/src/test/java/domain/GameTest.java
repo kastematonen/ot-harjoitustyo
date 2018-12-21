@@ -99,7 +99,7 @@ public class GameTest {
         assertEquals(10, invaders.size());
     }
     @Test
-    public void launchMissileMissileStateCganges(){
+    public void launchMissileMissileStateChanges(){
         game.launchMissile();
         assertEquals(true, game.getMissile().getState());
     }

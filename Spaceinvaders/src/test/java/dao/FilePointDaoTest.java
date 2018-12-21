@@ -42,9 +42,6 @@ public class FilePointDaoTest {
         try {
             pointDao = new FilePointDao("testDaoFile");
             pointDao.clearFile();
-        } catch (Exception e) {
-        }
-        try {
             pointDao.create(new Point(20, "first"));
         } catch (Exception e) {
         }

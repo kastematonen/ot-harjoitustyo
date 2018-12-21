@@ -43,8 +43,6 @@ public class SpaceinvadersUi extends Application{
     
     @Override
     public void start(Stage ikkuna) {
-        
-        
         //frontpage
         Label welcomeText = new Label("Space Invaders");
         Button beginningToDirections = new Button("Ohjeisiin");
@@ -90,10 +88,11 @@ public class SpaceinvadersUi extends Application{
         rulePage.setPadding(new Insets(20, 20, 20, 20));
         Scene ruleview= new Scene(rulePage);
         
-        //for grawing game view
+        //for drawing game view
         Canvas canvas = new Canvas(400,380);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
+        //creating the game
         FilePointDao pointDao = null;
         try {
             Properties properties = new Properties();
@@ -178,19 +177,19 @@ public class SpaceinvadersUi extends Application{
                     return;
                 }
                 previous = now;
-                //musta tausta
+                //black background
                 drawer.setFill(Color.BLACK);
                 drawer.fillRect(0, 0, 400, 380);
-                //sininen pelaaja 
+                //blue player
                 drawer.setFill(Color.BLUE);
                 drawer.fillOval(game.getPlayer().getX(), game.getPlayer().getY(), 20, 20);
-                //punainen valtaaja
+                //red invader
                 drawer.setFill(Color.RED);
                 ArrayList<Invader> invaders= game.getInvaders();
                 for(int i=0;i<invaders.size();i++){
                     drawer.fillOval(invaders.get(i).getX(), invaders.get(i).getY(), 25, 25);
                 }
-                //keltainen ammus
+                //yellow missile
                 if(game.getMissile().getState()==true){
                     drawer.setFill(Color.YELLOW);
                     drawer.fillOval(game.getMissile().getX(), game.getMissile().getY(), 15, 15);

@@ -209,6 +209,7 @@ public class Game {
     * Metodi palauttaa pistetiedoston 10 viimeisintä lisäystä tai kaikki lisäykset, 
     * jos niitä on alle kymmenen.
     * 
+    * @return lista viimeisistä kymmenestä pisteestä ja nimimerkistä Piste-olioina
     */
     public List<Point> getLast10Points() {
         List<Point> allPoints = this.pointDao.getAll();
@@ -223,6 +224,7 @@ public class Game {
     /**
     * Metodi palauttaa kaikki pistetiedostoon tallennetut pisteet.
     * 
+    * @return lista kaikista pisteistä ja nimimerkeistä Piste-olioina
     */
     public List<Point> getAllPoints() {
         return this.pointDao.getAll();
@@ -230,6 +232,7 @@ public class Game {
     /**
     * Metodi palauttaa pistetiedoston parhaan pelin pisteet ja pelaajan nimimerkin.
     * 
+    * @return lista parhaista pisteistä ja nimimerkistä "\t":llä erotettuna
     */
     public String getBestPoints() {
         this.topPoints.clear();
