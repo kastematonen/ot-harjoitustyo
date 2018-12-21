@@ -28,10 +28,8 @@ import javafx.scene.control.TextField;
 import java.util.*;
 import java.sql.*;
 import java.util.stream.Collectors;
-
 import spaceinvaders.domain.*;
 import spaceinvaders.dao.*;
-
 import java.io.FileInputStream;
 import java.util.List;
 import java.util.Properties;
