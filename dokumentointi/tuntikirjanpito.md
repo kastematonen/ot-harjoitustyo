@@ -17,4 +17,4 @@ päivä | aika | mitä tein
 18.12. | 5 | koodin siistimistä, yliluokka, testejä ym
 19.12. | 3 | koodin siistimistä, testejä
 21.12. | 3 | palautuksen viimeistelyä
-yht | 38,5 | 
+yht | 41,5 | 
