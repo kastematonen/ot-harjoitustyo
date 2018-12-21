@@ -1,7 +1,7 @@
 # Vaativuusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksella on mahdollista peleta Space Invaders -tyylistä peliä, jossa tarkoituksena on ampua taivaalta tulevat valloittajat ennen kuin ne ehtivät planeetallemme asti.
+Sovelluksella on mahdollista pelata Space Invaders -tyylistä peliä, jossa tarkoituksena on ampua taivaalta tulevat valloittajat ennen kuin ne ehtivät planeetallemme asti.
 
 ## Käyttäjät
 Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
