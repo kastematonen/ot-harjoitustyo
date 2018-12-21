@@ -15,5 +15,6 @@ päivä | aika | mitä tein
 10.12. | 3 | lisää testejä, javadocia
 11.12. | 5 | käyttöohje ja arkkitehtuurikuvaus, tallennus tiedostoon, rakenteen siistimistä
 18.12. | 5 | koodin siistimistä, yliluokka, testejä ym
-19.12. | | 
-yht | 35,5 | 
+19.12. | 3 | koodin siistimistä, testejä
+21.12. |  | 
+yht | 38,5 | 
