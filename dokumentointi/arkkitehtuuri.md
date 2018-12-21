@@ -39,6 +39,9 @@ Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Ga
 - void handleCollision(Missile missile, ArrayList<Invader> invaders)
 - void newGame()
 - void addPointsToList(int points, String name)
+- List<Point> getLast10Points()
+- List<Point> getAllPoints()
+- String getBestPoints()
 
 Sekvenssikaavio kuvaa tilannetta, jossa käyttäjä painaa etusivulla Peliin-nappulaa, ja peli lähtee pyörimään. Kaaviosta tulee hyvin ilmi se, että käyttöliittymän Game-luokan ilmentymä hoitaa yhteydet muihin domain-luokkiin. Käyttöliittymä ja sovelluslogiikka toimivat siis erillisissa luokissa ja pakkauksissa.
 
