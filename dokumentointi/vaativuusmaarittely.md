@@ -16,6 +16,7 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, jotka voivat pelata peliä.
   * voi liikuttaa hahmoa oikealle ja vasemmalle nuolinäppäimistä
   * voi ampua X-näppäimestä
   * näkee lähestyvät vastustajat
+  * vastustajien liike nopeutuu pelin edetessä
   * jos osuu ammuksella vastustajaan, saa pisteitä
   * näkee pisteet
   * jos vastustaja ehtii maahan ennen kuin se on ammuttu, peli loppuu
