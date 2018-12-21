@@ -26,7 +26,7 @@ Käyttöliittymä on yhteydessä sovelluslogiikkaan logiikasta vastaavalla oliol
 
 Sovelluksen logiikkapakkauksen luokat suhteutuvat toisiinsa seuraavasti:
 
-![Luokkakaavio](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/luokkakaavio2.jpg)
+![Luokkakaavio](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kuvat/luokkakaavio.jpg)
 
 Luokista Game kokoaa yhteen koko pelin toiminnallisuuden, ja muut luokat ovat Gamen käyttämiä ja päivittämiä ilmentymiä pelin elementeistä.
 
