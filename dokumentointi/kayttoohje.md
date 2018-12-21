@@ -8,7 +8,7 @@ Ohjelma olettaa, että sen koodihakemistossa (sama hakemisto, jossa mm. src, che
 
     pointFile=points.txt
     
-Tällöin ohjelma tallentaa pisteet points.txt-nimiseen tiedostoon eikä ennaltamääritettyyn pointFile-tiedostoon.
+Tällöin ohjelma tallentaa pisteet points.txt-nimiseen tiedostoon eikä ennaltamääritettyyn pointFile-tiedostoon. Pionts-niminen pistetiedosto on mukana ladattavassa tiedostossa, mutta tarvittaessa ohjelma osaa luoda tiedoston myös itse kuten pointFile-tiedoston kohdalla.
 
 ## Ohjelman käynnistäminen
 
