@@ -22,7 +22,7 @@ Pelin toimivuus ja sen sääntöjen noudattaminen on testattu käsin.
 
 Pelin asennusta on kokeiltu lataamalla spaceinvaders.jar-tiedosto ja asentamalla se  [käyttöohjeen](https://github.com/kastematonen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md) mukaan Windows-ympäristössä. Sovellus toimi tilanteissa, joissa config.properties-tiedosto on ollut mukana (pisteet on tallennettu tiedostoon points.txt) ja joissa sitä ei ole ollut (pisteet on tallennettu tiedostoon pointFile). 
 
-Sovellusta on testattu myös tilanteessa, jossa config.properties-tiedosto on ollut olemassa, samoin points.txt-tiedosto. Sovellus toimi tällöin odotetusti, ja kykeni lukemaan points.txt-tiedostoon oikeassa muodossa syötetyt pisteet pelin pistenäkymään.
+Sovellusta on testattu myös tilanteessa, jossa config.properties-tiedosto on ollut olemassa, samoin points.txt-tiedosto. Sovellus toimi tällöin odotetusti, ja kykeni lukemaan points.txt-tiedostoon oikeassa muodossa tallennetut pisteet pelin pistenäkymään.
 
 ### Toiminnallisuudet
 Määrittelydokumentin mukaiset toiminnallisuudet on testattu läpi käsin yrittäen samalla rikkoa pelin sääntöjä ja toiminnallisuuksia, ja peli toimi tästä huolimatta hyvin.
