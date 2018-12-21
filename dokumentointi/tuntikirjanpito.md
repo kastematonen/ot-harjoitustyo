@@ -16,5 +16,5 @@ päivä | aika | mitä tein
 11.12. | 5 | käyttöohje ja arkkitehtuurikuvaus, tallennus tiedostoon, rakenteen siistimistä
 18.12. | 5 | koodin siistimistä, yliluokka, testejä ym
 19.12. | 3 | koodin siistimistä, testejä
-21.12. |  | 
+21.12. | 3 | palautuksen viimeistelyä
 yht | 38,5 | 
