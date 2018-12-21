@@ -20,7 +20,7 @@ Käyttöliittymässä on useampi näkymä:
 
 Kukin näkymistä on rakennettu omaan Scene-olioonsa, ja vain yksi näistä on kerrallaan näkyvissä sovelluksen Stagessa. 
 
-Käyttöliittymä on yhteydessä sovelluslogiikkaan logiikasta vastaavalla oliolla, jonka metodeja tarpeen tullen kutsutaan.
+Käyttöliittymä on yhteydessä sovelluslogiikkaan logiikasta vastaavalla Game-oliolla, jonka metodeja tarpeen tullen kutsutaan muiden osien päivittämiseksi.
 
 ## Sovelluslogiikka
 
@@ -59,7 +59,7 @@ Sovellus tallentaa pisteet muodossa
 
     30;player
     
-eli muodossa pisteet;nimi puolipisteellä eroteltuna.
+eli pisteet;nimi puolipisteellä eroteltuna.
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
