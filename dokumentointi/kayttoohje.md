@@ -4,17 +4,19 @@ Lataa tiedosto [spaceinvaders.jar](https://github.com/kastematonen/ot-harjoitust
 
 ## Konfigurointi
 
-Ohjelma olettaa, että sen koodihakemistossa (sama hakemisto, jossa mm. src, checkstyle.xml ja skipped_files.xml sijaitsevat) on tiedosto config.properties, joka määrittää tiedoston nimeä, johon pelaajien pisteet tallennetaan. Ilman tiedostoa ohjelma luo enneltamääritetyn nimisen tiedoston, jonne se tallentaa pisteitä. Konfiguraatiotiedoston sisältö on seuraava:
+Ohjelma olettaa, että sen hakemistossa (sama hakemisto, jossa ladattu spaceinvaders.jar sijaitsee) on tiedosto config.properties, joka määrittää tiedoston nimeä, johon pelaajien pisteet tallennetaan. Ilman tiedostoa ohjelma luo enneltamääritetyn nimisen tiedoston pointFile, jonne se tallentaa pisteitä. Konfiguraatiotiedoston sisältö on seuraava:
 
     pointFile=points.txt
     
-Tällöin ohjelma tallentaa pisteet points.txt-nimiseen tiedostoon eikä ennaltamääritettyyn pointFile-tiedostoon. Pionts-niminen pistetiedosto on mukana ladattavassa tiedostossa, mutta tarvittaessa ohjelma osaa luoda tiedoston myös itse kuten pointFile-tiedoston kohdalla.
+Tällöin ohjelma tallentaa pisteet points.txt-nimiseen tiedostoon eikä ennaltamääritettyyn pointFile-tiedostoon. Ohjelma osaa luoda pistetiedoston itse.
 
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistyy komennolla
 
     java -jar spaceinvaders.jar
+    
+Tai (ainakin windows-ympäristössä) myös tuplaklikkaamalla tiedostoa.
 
 ## Aloitusnäkymä
 
